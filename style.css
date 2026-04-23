@@ -2,147 +2,150 @@
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-/* ─── THEME VARIABLES ─────────────────────────────────────── */
+/* ─── SIZING CONSTANTS ─────────────────────────────────────────
+ * --u  = 1 key unit width (46 px)
+ * --kh = standard key height
+ * --g  = gap between keys (5 px)
+ * --ug = u + g  (used in width formula: N*ug - g)
+ * Row width formula: calc(N * var(--ug) - var(--g))
+ ──────────────────────────────────────────────────────────────── */
 :root {
+  --u:   46px;
+  --kh:  48px;
+  --kh-fn: 38px;
+  --g:    5px;
+  --ug:  51px;   /* = u + g  (hardcoded for calc performance) */
+
   /* Page */
-  --page-bg:        #0d0d0d;
-  --page-scanline:  rgba(0,0,0,0.18);
-  --header-bg:      #111111;
-  --header-border:  #2a2010;
-  --header-text:    #c8a050;
-  --subtitle-text:  #6a5030;
-  --footer-text:    #3a2810;
+  --page-bg:       #111111;
+  --header-bg:     #1a1a1a;
+  --header-border: #2e2010;
+  --header-text:   #c8a050;
+  --subtitle-text: #6a4f28;
+  --footer-text:   #3a2808;
 
   /* Info bar */
-  --info-bg:        #0a0a0a;
-  --info-border:    #2a1a08;
-  --info-text:      #d0b060;
-  --badge-bg:       #c06010;
-  --badge-text:     #fff8e8;
+  --info-bg:       #0e0e0e;
+  --info-border:   #2a1a06;
+  --info-text:     #d0b060;
+  --badge-bg:      #c06010;
+  --badge-text:    #fff5e0;
 
   /* Controls */
-  --btn-bg:         #1a1208;
-  --btn-border:     #5a3a10;
-  --btn-text:       #c8a050;
-  --btn-hover-bg:   #2a1e0c;
-  --btn-hover-border:#c8a050;
-  --select-bg:      #1a1208;
-  --select-border:  #5a3a10;
-  --select-text:    #c8a050;
+  --btn-bg:        #1c1206;
+  --btn-border:    #5a3a12;
+  --btn-text:      #c8a050;
+  --btn-hover:     #2a1c08;
+  --btn-hover-bd:  #c8a050;
+  --sel-bg:        #1c1206;
+  --sel-border:    #5a3a12;
+  --sel-text:      #c8a050;
 
   /* Chassis */
-  --chassis-bg:     linear-gradient(180deg, #1e1a14 0%, #141008 100%);
-  --chassis-border: #0a0806;
-  --chassis-inner:  #1a1610;
-  --brand-text:     #3a2a10;
-  --brand-bg:       #0f0c08;
+  --chassis-top:   #252018;
+  --chassis-bot:   #151008;
+  --chassis-bd:    #080604;
+  --brand-text:    #3a2a10;
+  --brand-bg:      #0e0a06;
 
-  /* Key — normal */
-  --key-face:       #e6dac4;
-  --key-face-top:   #f2e8d0;
-  --key-edge-l:     #d0c4aa;
-  --key-edge-r:     #c0b49a;
-  --key-depth:      #4a3818;
-  --key-text:       #1a1006;
-  --key-fn-face:    #d8ccb4;
-  --key-fn-top:     #e4d8c0;
-  --key-numpad-face:#ddd0b8;
+  /* Key — normal (warm ivory) */
+  --k-top:    #f5edda;
+  --k-mid:    #e8d8b8;
+  --k-bot:    #d8c8a0;
+  --k-border: #9a8858;
+  --k-wall:   #5e4820;
+  --k-text:   #1a0e00;
 
-  /* Key — active/tested */
-  --key-active-face:#e08010;
-  --key-active-top: #ffaa30;
-  --key-active-depth:#6a3808;
-  --key-active-text:#160800;
-  --key-active-glow: rgba(240,150,10,0.35);
+  /* Key — fn / small (slightly cooler) */
+  --kfn-top:  #eee4cc;
+  --kfn-mid:  #dfd0b0;
 
-  --key-h:   52px;
-  --key-w:   50px;
-  --gap:      5px;
-  --radius:   5px;
+  /* Key — numpad (slightly warm grey) */
+  --knp-top:  #eee8d8;
+  --knp-mid:  #ddd5c2;
+
+  /* Key — active (amber) */
+  --ka-top:   #ffc04a;
+  --ka-mid:   #e08808;
+  --ka-border:#8a5800;
+  --ka-wall:  #4a2c00;
+  --ka-glow:  rgba(230,140,10,0.4);
+  --ka-text:  #180a00;
 }
 
-/* Light mode overrides */
+/* ─── LIGHT THEME ──────────────────────────────────────────── */
 body.light {
-  --page-bg:       #c4b898;
-  --page-scanline: rgba(0,0,0,0.04);
-  --header-bg:     #ede0c4;
-  --header-border: #c0a870;
-  --header-text:   #2a1a06;
+  --page-bg:       #b8a880;
+  --header-bg:     #ede2c8;
+  --header-border: #c0a070;
+  --header-text:   #2a1804;
   --subtitle-text: #806040;
   --footer-text:   #907050;
-  --info-bg:       #f0e6cc;
+  --info-bg:       #f0e8d0;
   --info-border:   #c8a870;
-  --info-text:     #2a1a06;
-  --badge-bg:      #c06010;
-  --btn-bg:        #ddd0b4;
+  --info-text:     #2a1804;
+  --btn-bg:        #d8ca9e;
   --btn-border:    #a88040;
-  --btn-text:      #2a1a06;
-  --btn-hover-bg:  #ece0c4;
-  --btn-hover-border:#6a4010;
-  --select-bg:     #ddd0b4;
-  --select-border: #a88040;
-  --select-text:   #2a1a06;
-  --chassis-bg:    linear-gradient(180deg, #2e2820 0%, #1e1810 100%);
-  --brand-text:    #4a3820;
-  --brand-bg:      #181410;
+  --btn-text:      #2a1804;
+  --btn-hover:     #ece0c0;
+  --btn-hover-bd:  #6a3c10;
+  --sel-bg:        #d8ca9e;
+  --sel-border:    #a88040;
+  --sel-text:      #2a1804;
+  --chassis-top:   #28201a;
+  --chassis-bot:   #16100a;
+  --brand-text:    #3e2e18;
 }
 
-/* ─── BASE ─────────────────────────────────────────────────── */
+/* ─── PAGE ─────────────────────────────────────────────────── */
 html { font-size: 14px; }
 
 body {
   font-family: 'Share Tech Mono', 'Courier New', monospace;
-  background: var(--page-bg);
+  background-color: var(--page-bg);
+  background-image: repeating-linear-gradient(
+    0deg,
+    transparent 0px, transparent 2px,
+    rgba(0,0,0,0.12) 2px, rgba(0,0,0,0.12) 3px
+  );
   color: var(--header-text);
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 20px 16px;
-  /* Subtle scanline texture */
-  background-image:
-    repeating-linear-gradient(
-      0deg,
-      var(--page-scanline) 0px,
-      var(--page-scanline) 1px,
-      transparent 1px,
-      transparent 3px
-    );
-  transition: background-color 0.3s, color 0.3s;
+  transition: background-color 0.3s;
 }
 
-#app {
-  width: 100%;
-  max-width: 1140px;
-}
+#app { width: 100%; max-width: 1200px; }
 
 /* ─── HEADER ───────────────────────────────────────────────── */
 header {
   background: var(--header-bg);
   border: 1px solid var(--header-border);
-  border-radius: 8px 8px 0 0;
+  border-radius: 10px 10px 0 0;
   padding: 14px 20px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 12px;
-  border-bottom: 2px solid var(--header-border);
+  flex-wrap: wrap;
 }
 
 .header-left h1 {
   font-family: 'VT323', 'Courier New', monospace;
-  font-size: 2rem;
+  font-size: 2.1rem;
   color: var(--header-text);
-  letter-spacing: 0.12em;
-  text-shadow: 0 0 12px rgba(200,160,80,0.4);
+  letter-spacing: 0.1em;
+  text-shadow: 0 0 14px rgba(200,160,60,0.45);
   line-height: 1;
 }
 
 .subtitle {
-  font-size: 0.72rem;
+  font-size: 0.68rem;
   color: var(--subtitle-text);
-  letter-spacing: 0.08em;
-  margin-top: 2px;
+  letter-spacing: 0.1em;
+  margin-top: 3px;
 }
 
 .controls {
@@ -159,15 +162,15 @@ header {
 }
 
 .control-group label {
-  font-size: 0.68rem;
+  font-size: 0.65rem;
   color: var(--subtitle-text);
-  letter-spacing: 0.1em;
+  letter-spacing: 0.12em;
 }
 
 select#langSelect {
-  background: var(--select-bg);
-  color: var(--select-text);
-  border: 1px solid var(--select-border);
+  background: var(--sel-bg);
+  color: var(--sel-text);
+  border: 1px solid var(--sel-border);
   border-radius: 4px;
   padding: 5px 8px;
   font-family: 'Share Tech Mono', monospace;
@@ -177,24 +180,21 @@ select#langSelect {
   transition: border-color 0.2s;
 }
 select#langSelect:hover,
-select#langSelect:focus { border-color: var(--btn-hover-border); }
+select#langSelect:focus { border-color: var(--btn-hover-bd); }
 
 .controls button {
   background: var(--btn-bg);
   color: var(--btn-text);
   border: 1px solid var(--btn-border);
   border-radius: 4px;
-  padding: 6px 12px;
+  padding: 6px 14px;
   font-family: 'Share Tech Mono', monospace;
   font-size: 0.75rem;
   letter-spacing: 0.08em;
   cursor: pointer;
   transition: background 0.15s, border-color 0.15s;
 }
-.controls button:hover {
-  background: var(--btn-hover-bg);
-  border-color: var(--btn-hover-border);
-}
+.controls button:hover  { background: var(--btn-hover); border-color: var(--btn-hover-bd); }
 .controls button:active { opacity: 0.7; }
 
 /* ─── MAIN ─────────────────────────────────────────────────── */
@@ -202,8 +202,9 @@ main {
   background: var(--header-bg);
   border: 1px solid var(--header-border);
   border-top: none;
-  border-radius: 0 0 8px 8px;
+  border-radius: 0 0 10px 10px;
   padding: 16px;
+  overflow-x: auto;   /* scroll on narrow screens */
 }
 
 /* ─── INFO BAR ─────────────────────────────────────────────── */
@@ -219,7 +220,7 @@ main {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-size: 0.82rem;
+  font-size: 0.8rem;
   color: var(--info-text);
   margin-bottom: 8px;
   letter-spacing: 0.06em;
@@ -227,9 +228,9 @@ main {
 
 #last-key {
   font-family: 'VT323', monospace;
-  font-size: 1.1rem;
+  font-size: 1.15rem;
   color: var(--header-text);
-  letter-spacing: 0.1em;
+  letter-spacing: 0.08em;
 }
 
 #key-count strong { color: var(--badge-bg); }
@@ -238,7 +239,7 @@ main {
   display: flex;
   flex-wrap: wrap;
   gap: 5px;
-  min-height: 28px;
+  min-height: 26px;
 }
 
 .badge {
@@ -249,11 +250,11 @@ main {
   background: var(--badge-bg);
   color: var(--badge-text);
   border-radius: 3px;
-  font-size: 0.72rem;
+  font-size: 0.7rem;
   font-family: 'Share Tech Mono', monospace;
-  letter-spacing: 0.05em;
-  animation: pop 0.12s cubic-bezier(.2,1.6,.6,1);
-  border: 1px solid rgba(255,255,255,0.15);
+  letter-spacing: 0.04em;
+  border: 1px solid rgba(255,255,255,0.12);
+  animation: pop 0.14s cubic-bezier(.2,1.8,.5,1);
 }
 
 @keyframes pop {
@@ -263,209 +264,205 @@ main {
 
 /* ─── KEYBOARD CHASSIS ─────────────────────────────────────── */
 .keyboard-chassis {
-  background: var(--chassis-bg);
-  border-radius: 14px;
-  padding: 18px 20px 22px;
-  border: 3px solid var(--chassis-border);
+  background: linear-gradient(175deg, var(--chassis-top) 0%, var(--chassis-bot) 100%);
+  border-radius: 16px;
+  border: 3px solid var(--chassis-bd);
+  padding: 20px 22px 26px;
   box-shadow:
-    0 10px 40px rgba(0,0,0,0.8),
-    inset 0 2px 0 rgba(255,255,255,0.06),
-    inset 0 -3px 0 rgba(0,0,0,0.6),
-    inset 2px 0 0 rgba(255,255,255,0.03),
-    inset -2px 0 0 rgba(255,255,255,0.03);
-  position: relative;
-  overflow: hidden;
-}
-
-/* Subtle noise texture overlay */
-.keyboard-chassis::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background-image:
-    url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
-  pointer-events: none;
-  border-radius: 12px;
-  opacity: 0.5;
+    0 12px 40px rgba(0,0,0,0.85),
+    inset 0 2px 0 rgba(255,255,255,0.07),
+    inset 0 -2px 0 rgba(0,0,0,0.5);
+  display: inline-block;   /* shrink-wrap to keyboard content */
 }
 
 .keyboard-brand {
   font-family: 'Share Tech Mono', monospace;
-  font-size: 0.6rem;
-  letter-spacing: 0.25em;
+  font-size: 0.55rem;
+  letter-spacing: 0.3em;
   color: var(--brand-text);
   text-align: center;
-  margin-bottom: 14px;
   background: var(--brand-bg);
-  padding: 5px 12px;
+  padding: 4px 0;
   border-radius: 3px;
-  border: 1px solid rgba(255,255,255,0.04);
-  display: inline-block;
-  width: 100%;
+  margin-bottom: 14px;
+  border: 1px solid rgba(255,255,255,0.03);
 }
 
-/* ─── KEYBOARD LAYOUT ──────────────────────────────────────── */
+/* ─── KEYBOARD GRID ────────────────────────────────────────── */
 #keyboard {
   display: flex;
   flex-direction: column;
-  gap: var(--gap);
+  gap: var(--g);
   user-select: none;
-  overflow-x: auto;
 }
 
 .keyboard-row {
   display: flex;
   flex-direction: row;
-  align-items: flex-end;
-  gap: var(--gap);
+  align-items: flex-end;  /* tall keys align at bottom */
+  gap: var(--g);
 }
 
-.key-gap          { width: calc(var(--key-w) * 0.75); flex-shrink: 0; }
-.key-gap-sm       { width: calc(var(--key-w) * 0.5);  flex-shrink: 0; }
-.key-gap-fn-cluster { width: calc(var(--key-w) * 3 + var(--gap) * 2); flex-shrink: 0; }
+/* Section spacers (between main / nav-cluster / numpad) */
+.key-gap          { width: 22px;  flex-shrink: 0; }
+.key-gap-sm       { width: 14px;  flex-shrink: 0; }
+.key-arrow-pad    { width: var(--u); flex-shrink: 0; }  /* 1U empty = centers ↑ key */
+.key-gap-fn-cluster {
+  /* Must equal 3×u + 2×g (the width of Ins/Home/PgUp row) */
+  width: calc(3 * var(--ug) - var(--g));
+  flex-shrink: 0;
+}
 
 /* ─── BASE KEY ─────────────────────────────────────────────── */
 .key {
-  min-width: var(--key-w);
-  height: var(--key-h);
-  position: relative;
+  /* Exact ANSI 1-unit width; use specific classes below for wider keys */
+  width:  var(--u);
+  height: var(--kh);
   flex-shrink: 0;
   cursor: default;
+  position: relative;
 
-  /* Keycap face gradient — lighter top, darker bottom for spherical illusion */
-  background: linear-gradient(175deg,
-    var(--key-face-top) 0%,
-    var(--key-face) 45%,
-    var(--key-edge-l) 100%
-  );
+  /* Rounded keycap face */
+  border-radius: 8px;
 
-  /* Borders simulate keycap walls */
-  border: 1.5px solid var(--key-edge-r);
-  border-top-color: rgba(255,255,255,0.5);
-  border-bottom: 4px solid var(--key-depth);
-  border-radius: var(--radius);
+  /* Face gradient: lighter at top (simulates spherical keycap profile) */
+  background: linear-gradient(180deg, var(--k-top) 0%, var(--k-mid) 55%, var(--k-bot) 100%);
 
+  /* 3-D effect via box-shadow only (no border-bottom hacks):
+     layer 1: thin inner top highlight
+     layer 2: thin inner bottom shade
+     layer 3: solid 1-px outer border
+     layer 4: 5-px "wall" below key (the depth face)
+     layer 5: diffuse drop shadow                            */
   box-shadow:
-    inset 0 1px 0 rgba(255,255,255,0.55),
-    inset 1px 0 0 rgba(255,255,255,0.2),
-    inset 0 -2px 3px rgba(0,0,0,0.18),
-    0 3px 6px rgba(0,0,0,0.5),
-    0 1px 2px rgba(0,0,0,0.4);
+    inset 0  1px 1px rgba(255,255,255,0.80),
+    inset 0 -1px 1px rgba(0,0,0,0.12),
+    0 0 0 1px var(--k-border),
+    0 5px 0 0 var(--k-wall),
+    0 7px 6px rgba(0,0,0,0.45);
+
+  /* Typography */
+  font-family: 'Share Tech Mono', 'Courier New', monospace;
+  font-size: 0.73rem;
+  color: var(--k-text);
 
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 3px 4px;
-  text-align: center;
+  align-items: flex-start;
+  justify-content: flex-end;
+  padding: 0 5px 4px;
   line-height: 1.15;
+  overflow: hidden;
 
-  font-family: 'Share Tech Mono', 'Courier New', monospace;
-  font-size: 0.72rem;
-  font-weight: 400;
-  color: var(--key-text);
-
-  transition: filter 0.08s, transform 0.06s;
+  transition: transform 0.06s ease, box-shadow 0.06s ease;
 }
 
-/* Shine dot on keycap */
-.key::after {
-  content: '';
-  position: absolute;
-  top: 3px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 40%;
-  height: 30%;
-  background: radial-gradient(ellipse at 50% 30%, rgba(255,255,255,0.35) 0%, transparent 70%);
-  border-radius: 50%;
-  pointer-events: none;
+/* Single-label keys (letters, etc.) centre their text */
+.key > span:only-child {
+  align-self: center;
+  padding: 0;
+  text-align: center;
+  width: 100%;
 }
 
-.key span { position: relative; z-index: 1; line-height: 1.1; }
-
+/* Two-label keys: shift char top-left, base char bottom-left */
 .key span.top {
   font-size: 0.60rem;
-  opacity: 0.65;
-  align-self: flex-start;
-  padding-left: 4px;
+  opacity: 0.6;
   line-height: 1;
+  align-self: flex-start;
+  margin-bottom: 1px;
 }
 .key span.bot {
-  align-self: flex-start;
-  padding-left: 4px;
   line-height: 1;
 }
 
-/* ─── KEY VARIANTS ─────────────────────────────────────────── */
+/* Centre multi-word fixed labels (Tab, Caps, etc.) */
+.key-tab span,
+.key-caps span,
+.key-enter span,
+.key-backspace span,
+.key-shift-l span,
+.key-shift-r span,
+.key-ctrl-l span, .key-ctrl-r span,
+.key-meta-l span, .key-meta-r span,
+.key-alt-l  span, .key-alt-r  span,
+.key-context span,
+.key-space span,
+.key-fn span,
+.key-numpad span,
+.key-arrow span {
+  align-self: center;
+  width: 100%;
+  text-align: center;
+  padding: 0;
+  font-size: 0.65rem;
+}
+
+/* ─── KEY SIZE VARIANTS ────────────────────────────────────── */
+/*  Width formula:  calc( N * var(--ug) - var(--g) )
+    where N  = key width in units
+    --ug = 51 px (= u 46 + g 5)                                  */
+
+.key-backspace { width: calc(2    * var(--ug) - var(--g)); }  /* 97 px  */
+.key-tab       { width: calc(1.5  * var(--ug) - var(--g)); }  /* 71.5 px */
+.key-backslash { width: calc(1.5  * var(--ug) - var(--g)); }
+.key-caps      { width: calc(1.75 * var(--ug) - var(--g)); }  /* 84.25 px */
+.key-enter     { width: calc(2.25 * var(--ug) - var(--g)); }  /* 109.75 px */
+.key-shift-l   { width: calc(2.25 * var(--ug) - var(--g)); }
+.key-shift-r   { width: calc(2.75 * var(--ug) - var(--g)); }  /* 135.25 px */
+
+/* Bottom-row modifiers: all 1.25U so Space fills the rest to 15U */
+.key-ctrl-l,
+.key-ctrl-r,
+.key-meta-l,
+.key-meta-r,
+.key-alt-l,
+.key-alt-r,
+.key-context   { width: calc(1.25 * var(--ug) - var(--g)); }  /* 58.75 px */
+
+.key-space     { width: calc(6.25 * var(--ug) - var(--g)); }  /* 313.75 px */
+
+/* ─── KEY HEIGHT VARIANTS ──────────────────────────────────── */
+.key-fn    { height: var(--kh-fn); }
+.key-arrow { height: var(--kh-fn); }
+
+/* Numpad + and Enter span two rows */
+.key-numpad-plus,
+.key-numpad-enter { height: calc(2 * var(--kh) + var(--g)); }
+
+/* Numpad 0 is 2U wide */
+.key-numpad-0 { width: calc(2 * var(--ug) - var(--g)); }
+
+/* ─── KEY COLOUR VARIANTS ──────────────────────────────────── */
 .key-fn {
-  height: calc(var(--key-h) * 0.78);
-  font-size: 0.62rem;
-  background: linear-gradient(175deg, var(--key-fn-top), var(--key-fn-face));
+  background: linear-gradient(180deg, var(--kfn-top) 0%, var(--kfn-mid) 100%);
 }
 
 .key-numpad {
-  background: linear-gradient(175deg,
-    color-mix(in srgb, var(--key-fn-top) 60%, #d4c8a8),
-    var(--key-numpad-face)
-  );
+  background: linear-gradient(180deg, var(--knp-top) 0%, var(--knp-mid) 100%);
 }
 
-/* Wide keys */
-.key-backspace  { min-width: calc(var(--key-w) * 2   + var(--gap)); }
-.key-tab        { min-width: calc(var(--key-w) * 1.5 + var(--gap) * 0.5); }
-.key-backslash  { min-width: calc(var(--key-w) * 1.5 + var(--gap) * 0.5); }
-.key-caps       { min-width: calc(var(--key-w) * 1.75 + var(--gap)); }
-.key-enter      { min-width: calc(var(--key-w) * 2.25 + var(--gap)); }
-.key-shift-l    { min-width: calc(var(--key-w) * 2.25 + var(--gap)); }
-.key-shift-r    { min-width: calc(var(--key-w) * 2.75 + var(--gap) * 2); }
-.key-ctrl-l,
-.key-ctrl-r     { min-width: calc(var(--key-w) * 1.25); }
-.key-meta-l,
-.key-meta-r     { min-width: calc(var(--key-w) * 1.25); }
-.key-alt-l,
-.key-alt-r      { min-width: calc(var(--key-w) * 1.25); }
-.key-context    { min-width: var(--key-w); }
-.key-space      { min-width: calc(var(--key-w) * 5.5 + var(--gap) * 4); }
-.key-arrow      { min-width: var(--key-w); height: calc(var(--key-h) * 0.82); }
-
-/* Tall numpad keys */
-.key-numpad-plus,
-.key-numpad-enter { height: calc(var(--key-h) * 2 + var(--gap)); }
-
-/* Wide numpad 0 */
-.key-numpad-0   { min-width: calc(var(--key-w) * 2 + var(--gap)); }
-
-/* ─── ACTIVE (TESTED) KEY ──────────────────────────────────── */
+/* ─── ACTIVE / TESTED KEY ──────────────────────────────────── */
 .key.active {
-  background: linear-gradient(175deg,
-    var(--key-active-top) 0%,
-    var(--key-active-face) 45%,
-    color-mix(in srgb, var(--key-active-face) 70%, #802000) 100%
-  );
-  border-color: #c07010;
-  border-top-color: rgba(255,220,80,0.6);
-  border-bottom: 1px solid var(--key-active-depth);
-  color: var(--key-active-text) !important;
-  transform: translateY(3px);
+  background: linear-gradient(180deg, var(--ka-top) 0%, var(--ka-mid) 100%);
+  color: var(--ka-text) !important;
+
+  /* Key pressed: wall shrinks to 1 px, key drops 4 px */
   box-shadow:
-    inset 0 2px 5px rgba(0,0,0,0.45),
-    inset 1px 0 0 rgba(255,220,80,0.25),
-    0 0 10px var(--key-active-glow),
-    0 0 20px var(--key-active-glow);
-  filter: none;
+    inset 0  2px 4px rgba(0,0,0,0.38),
+    inset 0 -1px 0   rgba(255,210,60,0.25),
+    0 0 0 1px var(--ka-border),
+    0 1px 0 0 var(--ka-wall),
+    0 2px 3px rgba(0,0,0,0.35),
+    0 0 14px var(--ka-glow);
+
+  transform: translateY(4px);
 }
 
 .key.active span,
 .key.active span.top,
-.key.active span.bot {
-  color: var(--key-active-text);
-  opacity: 1;
-}
-
-.key.active::after {
-  background: radial-gradient(ellipse at 50% 20%, rgba(255,240,160,0.5) 0%, transparent 65%);
-}
+.key.active span.bot { color: var(--ka-text); opacity: 1; }
 
 /* ─── BOTTOM RESET BAR ─────────────────────────────────────── */
 #bottom-bar {
@@ -476,40 +473,30 @@ main {
 
 #resetBtnBottom {
   padding: 10px 36px;
-  background: #1a0c04;
+  background: #180a02;
   color: #c06010;
   border: 1px solid #6a3010;
-  border-bottom: 3px solid #3a1008;
-  border-radius: 5px;
+  border-bottom: 3px solid #3a1006;
+  border-radius: 6px;
   font-family: 'Share Tech Mono', monospace;
   font-size: 0.85rem;
   letter-spacing: 0.15em;
   cursor: pointer;
-  transition: background 0.15s, border-color 0.15s, color 0.15s;
   box-shadow: 0 2px 8px rgba(0,0,0,0.5);
+  transition: background 0.15s, border-color 0.15s, color 0.15s;
 }
-#resetBtnBottom:hover {
-  background: #2a1408;
-  border-color: #c06010;
-  color: #f0a040;
-}
-#resetBtnBottom:active {
-  transform: translateY(2px);
-  border-bottom-width: 1px;
-}
+#resetBtnBottom:hover  { background: #281408; border-color: #c06010; color: #f0a040; }
+#resetBtnBottom:active { transform: translateY(2px); border-bottom-width: 1px; }
 
 /* ─── FOOTER ───────────────────────────────────────────────── */
 footer {
   margin-top: 12px;
   text-align: center;
-  font-size: 0.65rem;
+  font-size: 0.62rem;
   color: var(--footer-text);
   letter-spacing: 0.1em;
 }
 
 /* ─── FULLSCREEN ───────────────────────────────────────────── */
-:fullscreen #app,
-:-webkit-full-screen #app {
-  padding: 24px;
-  overflow-y: auto;
-}
+:fullscreen  body { padding: 24px; }
+:-webkit-full-screen body { padding: 24px; }
