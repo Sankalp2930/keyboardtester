@@ -177,7 +177,7 @@ header {
   letter-spacing: 0.12em;
 }
 
-select#langSelect {
+.controls select {
   background: var(--sel-bg);
   color: var(--sel-text);
   border: 1px solid var(--sel-border);
@@ -189,8 +189,8 @@ select#langSelect {
   outline: none;
   transition: border-color 0.2s;
 }
-select#langSelect:hover,
-select#langSelect:focus { border-color: var(--btn-hover-bd); }
+.controls select:hover,
+.controls select:focus { border-color: var(--btn-hover-bd); }
 
 .controls button {
   background: var(--btn-bg);
@@ -489,6 +489,34 @@ footer {
   color: var(--footer-text);
   letter-spacing: 0.1em;
 }
+
+.footer-creator {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 6px;
+  font-size: 0.65rem;
+  letter-spacing: 0.08em;
+  color: var(--footer-text);
+}
+
+.github-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 3px 10px;
+  border: 1px solid var(--sel-border);
+  border-radius: 4px;
+  background: var(--sel-bg);
+  color: var(--sel-text);
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.65rem;
+  letter-spacing: 0.06em;
+  text-decoration: none;
+  cursor: pointer;
+  transition: border-color 0.2s, background 0.2s;
+}
+.github-btn:hover { border-color: var(--btn-hover-bd); background: var(--btn-hover-bg, var(--sel-bg)); }
 
 /* ─── FULLSCREEN ───────────────────────────────────────────── */
 :fullscreen  body { padding: 24px; }

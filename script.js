@@ -609,6 +609,7 @@
   const keyCountEl    = document.getElementById('key-count').querySelector('strong');
   const testedKeysEl  = document.getElementById('tested-keys');
   const resetBtn      = document.getElementById('resetBtn');
+  const osSelect      = document.getElementById('osSelect');
   const themeBtn      = document.getElementById('themeBtn');
   const fullscreenBtn = document.getElementById('fullscreenBtn');
   const langSelect    = document.getElementById('langSelect');
@@ -685,16 +686,62 @@
     return parts.join('+');
   }
 
+  /* ─── OS LAYOUT (MAC / WIN) ──────────────────────────────── */
+  const OS_LABELS = {
+    win: {
+      MetaLeft:'⊞ Win', MetaRight:'⊞ Win',
+      AltLeft:'Alt',    AltRight:'Alt',
+      ControlLeft:'Ctrl', ControlRight:'Ctrl',
+      ContextMenu:'☰',
+    },
+    mac: {
+      MetaLeft:'⌘ Cmd',   MetaRight:'⌘ Cmd',
+      AltLeft:'⌥ Opt',    AltRight:'⌥ Opt',
+      ControlLeft:'⌃ Ctrl', ControlRight:'⌃ Ctrl',
+      ContextMenu:'fn',
+    },
+  };
+
+  function isMac() { return osSelect.value === 'mac'; }
+
+  function applyOsLayout() {
+    const labels = isMac() ? OS_LABELS.mac : OS_LABELS.win;
+    Object.entries(labels).forEach(([code, label]) => {
+      document.querySelectorAll(`.key[data-code="${code}"] span`).forEach(s => {
+        s.textContent = label;
+      });
+    });
+  }
+
+  const savedOs = localStorage.getItem('kbt-os') || 'win';
+  osSelect.value = savedOs;
+  applyOsLayout();
+
+  osSelect.addEventListener('change', () => {
+    localStorage.setItem('kbt-os', osSelect.value);
+    applyOsLayout();
+    doReset();
+  });
+
   function keyDisplayName(code, key) {
+    const osMap = isMac() ? {
+      MetaLeft:'L.⌘', MetaRight:'R.⌘',
+      AltLeft:'L.⌥',  AltRight:'R.⌥',
+      ControlLeft:'L.⌃', ControlRight:'R.⌃',
+      ContextMenu:'fn',
+    } : {
+      MetaLeft:'L.Win', MetaRight:'R.Win',
+      AltLeft:'L.Alt',  AltRight:'R.Alt',
+      ControlLeft:'L.Ctrl', ControlRight:'R.Ctrl',
+      ContextMenu:'Menu',
+    };
+    if (osMap[code]) return osMap[code];
+
     const MAP = {
       Space:'Space', Enter:'Enter', NumpadEnter:'Num Enter',
       Backspace:'Backspace', Tab:'Tab', Escape:'Escape',
       CapsLock:'Caps Lock', NumLock:'Num Lock',
       ShiftLeft:'L.Shift', ShiftRight:'R.Shift',
-      ControlLeft:'L.Ctrl', ControlRight:'R.Ctrl',
-      AltLeft:'L.Alt', AltRight:'R.Alt',
-      MetaLeft:'L.Win', MetaRight:'R.Win',
-      ContextMenu:'Menu',
       ArrowUp:'↑', ArrowDown:'↓', ArrowLeft:'←', ArrowRight:'→',
       Insert:'Insert', Delete:'Delete', Home:'Home', End:'End',
       PageUp:'Page Up', PageDown:'Page Down',
