@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Keyboard Tester</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="app">
+    <header>
+      <h1>Keyboard Tester</h1>
+      <p class="subtitle">Press any key to test if it's working</p>
+      <div class="controls">
+        <button id="resetBtn">Reset</button>
+        <button id="themeBtn">Dark Mode</button>
+        <button id="fullscreenBtn">Fullscreen</button>
+      </div>
+    </header>
+
+    <main>
+      <div id="keyboard">
+
+        <!-- Row 0: Escape + Function keys -->
+        <div class="keyboard-row" id="row-fn">
+          <div class="key key-fn" data-key="Escape" data-code="Escape"><span>Esc</span></div>
+          <div class="key-gap"></div>
+          <div class="key key-fn" data-key="F1"  data-code="F1"><span>F1</span></div>
+          <div class="key key-fn" data-key="F2"  data-code="F2"><span>F2</span></div>
+          <div class="key key-fn" data-key="F3"  data-code="F3"><span>F3</span></div>
+          <div class="key key-fn" data-key="F4"  data-code="F4"><span>F4</span></div>
+          <div class="key-gap-sm"></div>
+          <div class="key key-fn" data-key="F5"  data-code="F5"><span>F5</span></div>
+          <div class="key key-fn" data-key="F6"  data-code="F6"><span>F6</span></div>
+          <div class="key key-fn" data-key="F7"  data-code="F7"><span>F7</span></div>
+          <div class="key key-fn" data-key="F8"  data-code="F8"><span>F8</span></div>
+          <div class="key-gap-sm"></div>
+          <div class="key key-fn" data-key="F9"  data-code="F9"><span>F9</span></div>
+          <div class="key key-fn" data-key="F10" data-code="F10"><span>F10</span></div>
+          <div class="key key-fn" data-key="F11" data-code="F11"><span>F11</span></div>
+          <div class="key key-fn" data-key="F12" data-code="F12"><span>F12</span></div>
+          <div class="key-gap-sm"></div>
+          <div class="key key-fn" data-key="PrintScreen" data-code="PrintScreen"><span>PrtSc</span></div>
+          <div class="key key-fn" data-key="ScrollLock" data-code="ScrollLock"><span>ScrLk</span></div>
+          <div class="key key-fn" data-key="Pause" data-code="Pause"><span>Pause</span></div>
+        </div>
+
+        <!-- Row 1: Number row -->
+        <div class="keyboard-row" id="row-1">
+          <div class="key" data-key="`" data-code="Backquote"><span class="top">~</span><span class="bot">`</span></div>
+          <div class="key" data-key="1" data-code="Digit1"><span class="top">!</span><span class="bot">1</span></div>
+          <div class="key" data-key="2" data-code="Digit2"><span class="top">@</span><span class="bot">2</span></div>
+          <div class="key" data-key="3" data-code="Digit3"><span class="top">#</span><span class="bot">3</span></div>
+          <div class="key" data-key="4" data-code="Digit4"><span class="top">$</span><span class="bot">4</span></div>
+          <div class="key" data-key="5" data-code="Digit5"><span class="top">%</span><span class="bot">5</span></div>
+          <div class="key" data-key="6" data-code="Digit6"><span class="top">^</span><span class="bot">6</span></div>
+          <div class="key" data-key="7" data-code="Digit7"><span class="top">&amp;</span><span class="bot">7</span></div>
+          <div class="key" data-key="8" data-code="Digit8"><span class="top">*</span><span class="bot">8</span></div>
+          <div class="key" data-key="9" data-code="Digit9"><span class="top">(</span><span class="bot">9</span></div>
+          <div class="key" data-key="0" data-code="Digit0"><span class="top">)</span><span class="bot">0</span></div>
+          <div class="key" data-key="-" data-code="Minus"><span class="top">_</span><span class="bot">-</span></div>
+          <div class="key" data-key="=" data-code="Equal"><span class="top">+</span><span class="bot">=</span></div>
+          <div class="key key-backspace" data-key="Backspace" data-code="Backspace"><span>⌫ Backspace</span></div>
+          <!-- numpad gap -->
+          <div class="key-gap-sm"></div>
+          <div class="key key-fn" data-key="Insert" data-code="Insert"><span>Ins</span></div>
+          <div class="key key-fn" data-key="Home" data-code="Home"><span>Home</span></div>
+          <div class="key key-fn" data-key="PageUp" data-code="PageUp"><span>PgUp</span></div>
+          <div class="key-gap-sm"></div>
+          <div class="key key-numpad" data-key="NumLock" data-code="NumLock"><span>Num<br>Lk</span></div>
+          <div class="key key-numpad" data-key="/" data-code="NumpadDivide"><span>/</span></div>
+          <div class="key key-numpad" data-key="*" data-code="NumpadMultiply"><span>*</span></div>
+          <div class="key key-numpad" data-key="-" data-code="NumpadSubtract"><span>−</span></div>
+        </div>
+
+        <!-- Row 2: QWERTY -->
+        <div class="keyboard-row" id="row-2">
+          <div class="key key-tab" data-key="Tab" data-code="Tab"><span>Tab ⇥</span></div>
+          <div class="key" data-key="q" data-code="KeyQ"><span>Q</span></div>
+          <div class="key" data-key="w" data-code="KeyW"><span>W</span></div>
+          <div class="key" data-key="e" data-code="KeyE"><span>E</span></div>
+          <div class="key" data-key="r" data-code="KeyR"><span>R</span></div>
+          <div class="key" data-key="t" data-code="KeyT"><span>T</span></div>
+          <div class="key" data-key="y" data-code="KeyY"><span>Y</span></div>
+          <div class="key" data-key="u" data-code="KeyU"><span>U</span></div>
+          <div class="key" data-key="i" data-code="KeyI"><span>I</span></div>
+          <div class="key" data-key="o" data-code="KeyO"><span>O</span></div>
+          <div class="key" data-key="p" data-code="KeyP"><span>P</span></div>
+          <div class="key" data-key="[" data-code="BracketLeft"><span class="top">{</span><span class="bot">[</span></div>
+          <div class="key" data-key="]" data-code="BracketRight"><span class="top">}</span><span class="bot">]</span></div>
+          <div class="key key-backslash" data-key="\\" data-code="Backslash"><span class="top">|</span><span class="bot">\\</span></div>
+          <div class="key-gap-sm"></div>
+          <div class="key key-fn" data-key="Delete" data-code="Delete"><span>Del</span></div>
+          <div class="key key-fn" data-key="End" data-code="End"><span>End</span></div>
+          <div class="key key-fn" data-key="PageDown" data-code="PageDown"><span>PgDn</span></div>
+          <div class="key-gap-sm"></div>
+          <div class="key key-numpad" data-key="7" data-code="Numpad7"><span class="top">Home</span><span class="bot">7</span></div>
+          <div class="key key-numpad" data-key="8" data-code="Numpad8"><span class="top">↑</span><span class="bot">8</span></div>
+          <div class="key key-numpad" data-key="9" data-code="Numpad9"><span class="top">PgUp</span><span class="bot">9</span></div>
+          <div class="key key-numpad key-numpad-plus" data-key="+" data-code="NumpadAdd"><span>+</span></div>
+        </div>
+
+        <!-- Row 3: ASDF -->
+        <div class="keyboard-row" id="row-3">
+          <div class="key key-caps" data-key="CapsLock" data-code="CapsLock"><span>Caps Lock</span></div>
+          <div class="key" data-key="a" data-code="KeyA"><span>A</span></div>
+          <div class="key" data-key="s" data-code="KeyS"><span>S</span></div>
+          <div class="key" data-key="d" data-code="KeyD"><span>D</span></div>
+          <div class="key" data-key="f" data-code="KeyF"><span>F</span></div>
+          <div class="key" data-key="g" data-code="KeyG"><span>G</span></div>
+          <div class="key" data-key="h" data-code="KeyH"><span>H</span></div>
+          <div class="key" data-key="j" data-code="KeyJ"><span>J</span></div>
+          <div class="key" data-key="k" data-code="KeyK"><span>K</span></div>
+          <div class="key" data-key="l" data-code="KeyL"><span>L</span></div>
+          <div class="key" data-key=";" data-code="Semicolon"><span class="top">:</span><span class="bot">;</span></div>
+          <div class="key" data-key="'" data-code="Quote"><span class="top">"</span><span class="bot">'</span></div>
+          <div class="key key-enter" data-key="Enter" data-code="Enter"><span>Enter ↵</span></div>
+          <div class="key-gap-sm"></div>
+          <div class="key-gap-fn-cluster"></div>
+          <div class="key-gap-sm"></div>
+          <div class="key key-numpad" data-key="4" data-code="Numpad4"><span class="top">←</span><span class="bot">4</span></div>
+          <div class="key key-numpad" data-key="5" data-code="Numpad5"><span class="bot">5</span></div>
+          <div class="key key-numpad" data-key="6" data-code="Numpad6"><span class="top">→</span><span class="bot">6</span></div>
+        </div>
+
+        <!-- Row 4: ZXCV -->
+        <div class="keyboard-row" id="row-4">
+          <div class="key key-shift-l" data-key="Shift" data-code="ShiftLeft"><span>⇧ Shift</span></div>
+          <div class="key" data-key="z" data-code="KeyZ"><span>Z</span></div>
+          <div class="key" data-key="x" data-code="KeyX"><span>X</span></div>
+          <div class="key" data-key="c" data-code="KeyC"><span>C</span></div>
+          <div class="key" data-key="v" data-code="KeyV"><span>V</span></div>
+          <div class="key" data-key="b" data-code="KeyB"><span>B</span></div>
+          <div class="key" data-key="n" data-code="KeyN"><span>N</span></div>
+          <div class="key" data-key="m" data-code="KeyM"><span>M</span></div>
+          <div class="key" data-key="," data-code="Comma"><span class="top">&lt;</span><span class="bot">,</span></div>
+          <div class="key" data-key="." data-code="Period"><span class="top">&gt;</span><span class="bot">.</span></div>
+          <div class="key" data-key="/" data-code="Slash"><span class="top">?</span><span class="bot">/</span></div>
+          <div class="key key-shift-r" data-key="Shift" data-code="ShiftRight"><span>Shift ⇧</span></div>
+          <div class="key-gap-sm"></div>
+          <div class="key key-fn key-arrow" data-key="ArrowUp" data-code="ArrowUp"><span>↑</span></div>
+          <div class="key-gap-sm"></div>
+          <div class="key key-numpad" data-key="1" data-code="Numpad1"><span class="top">End</span><span class="bot">1</span></div>
+          <div class="key key-numpad" data-key="2" data-code="Numpad2"><span class="top">↓</span><span class="bot">2</span></div>
+          <div class="key key-numpad" data-key="3" data-code="Numpad3"><span class="top">PgDn</span><span class="bot">3</span></div>
+          <div class="key key-numpad key-numpad-enter" data-key="Enter" data-code="NumpadEnter"><span>Enter</span></div>
+        </div>
+
+        <!-- Row 5: Bottom row -->
+        <div class="keyboard-row" id="row-5">
+          <div class="key key-ctrl-l" data-key="Control" data-code="ControlLeft"><span>Ctrl</span></div>
+          <div class="key key-meta-l" data-key="Meta" data-code="MetaLeft"><span>⊞ Win</span></div>
+          <div class="key key-alt-l" data-key="Alt" data-code="AltLeft"><span>Alt</span></div>
+          <div class="key key-space" data-key=" " data-code="Space"><span>Space</span></div>
+          <div class="key key-alt-r" data-key="Alt" data-code="AltRight"><span>Alt</span></div>
+          <div class="key key-meta-r" data-key="Meta" data-code="MetaRight"><span>⊞ Win</span></div>
+          <div class="key key-context" data-key="ContextMenu" data-code="ContextMenu"><span>☰</span></div>
+          <div class="key key-ctrl-r" data-key="Control" data-code="ControlRight"><span>Ctrl</span></div>
+          <div class="key-gap-sm"></div>
+          <div class="key key-fn key-arrow" data-key="ArrowLeft" data-code="ArrowLeft"><span>←</span></div>
+          <div class="key key-fn key-arrow" data-key="ArrowDown" data-code="ArrowDown"><span>↓</span></div>
+          <div class="key key-fn key-arrow" data-key="ArrowRight" data-code="ArrowRight"><span>→</span></div>
+          <div class="key-gap-sm"></div>
+          <div class="key key-numpad key-numpad-0" data-key="0" data-code="Numpad0"><span class="top">Ins</span><span class="bot">0</span></div>
+          <div class="key key-numpad" data-key="." data-code="NumpadDecimal"><span class="top">Del</span><span class="bot">.</span></div>
+        </div>
+
+      </div><!-- #keyboard -->
+
+      <div id="info-bar">
+        <span id="last-key">Press a key...</span>
+        <span id="key-count">Keys tested: <strong>0</strong></span>
+      </div>
+    </main>
+
+    <footer>
+      <p>Press any key on your physical keyboard. Keys that light up green are working correctly.</p>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
