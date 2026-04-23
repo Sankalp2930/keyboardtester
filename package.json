@@ -1,0 +1,8 @@
+{
+  "name": "keyboardtester",
+  "version": "1.0.0",
+  "description": "Interactive keyboard tester clone",
+  "scripts": {
+    "start": "npx serve . -l 3000"
+  }
+}

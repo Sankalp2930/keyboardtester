@@ -20,31 +20,62 @@
         <div class="control-group">
           <label for="langSelect">LAYOUT</label>
           <select id="langSelect">
-            <option value="en">English (US)</option>
-            <option value="de">Deutsch</option>
-            <option value="fr">Français</option>
-            <option value="es">Español</option>
-            <option value="it">Italiano</option>
-            <option value="pt">Português (BR)</option>
-            <option value="nl">Nederlands</option>
-            <option value="sv">Svenska</option>
-            <option value="no">Norsk</option>
-            <option value="da">Dansk</option>
-            <option value="fi">Suomi</option>
-            <option value="pl">Polski</option>
-            <option value="cs">Čeština</option>
-            <option value="hu">Magyar</option>
-            <option value="tr">Türkçe</option>
-            <option value="el">Ελληνικά</option>
-            <option value="ru">Русский</option>
-            <option value="uk">Українська</option>
-            <option value="he">עברית</option>
-            <option value="ar">العربية</option>
-            <option value="ja">日本語</option>
-            <option value="ko">한국어</option>
-            <option value="zh">中文 (拼音)</option>
-            <option value="th">ภาษาไทย</option>
-            <option value="vi">Tiếng Việt</option>
+            <optgroup label="── Latin / West European ──">
+              <option value="en">English (US)</option>
+              <option value="de">Deutsch</option>
+              <option value="fr">Français (AZERTY)</option>
+              <option value="es">Español</option>
+              <option value="it">Italiano</option>
+              <option value="pt">Português (BR)</option>
+              <option value="nl">Nederlands</option>
+              <option value="sv">Svenska</option>
+              <option value="no">Norsk</option>
+              <option value="da">Dansk</option>
+              <option value="fi">Suomi</option>
+              <option value="is">Íslenska</option>
+            </optgroup>
+            <optgroup label="── Latin / East European ──">
+              <option value="pl">Polski</option>
+              <option value="cs">Čeština (QWERTZ)</option>
+              <option value="sk">Slovenčina</option>
+              <option value="hu">Magyar</option>
+              <option value="ro">Română</option>
+              <option value="hr">Hrvatski (QWERTZ)</option>
+              <option value="sl">Slovenščina (QWERTZ)</option>
+              <option value="sr-Latn">Srpski – latinica</option>
+              <option value="sq">Shqip</option>
+              <option value="et">Eesti</option>
+              <option value="lv">Latviešu</option>
+              <option value="lt">Lietuvių</option>
+              <option value="tr">Türkçe</option>
+              <option value="az">Azərbaycan</option>
+            </optgroup>
+            <optgroup label="── Cyrillic ──">
+              <option value="ru">Русский</option>
+              <option value="uk">Українська</option>
+              <option value="be">Беларуская</option>
+              <option value="bg">Български (BDS)</option>
+              <option value="sr">Српски (ћирилица)</option>
+              <option value="mk">Македонски</option>
+              <option value="kk">Қазақша</option>
+              <option value="mn">Монгол</option>
+            </optgroup>
+            <optgroup label="── Greek ──">
+              <option value="el">Ελληνικά</option>
+            </optgroup>
+            <optgroup label="── Middle East / Caucasus ──">
+              <option value="he">עברית</option>
+              <option value="ar">العربية</option>
+              <option value="fa">فارسی</option>
+              <option value="ka">ქართული</option>
+            </optgroup>
+            <optgroup label="── East / South-East Asia ──">
+              <option value="ja">日本語</option>
+              <option value="ko">한국어</option>
+              <option value="zh">中文 (拼音)</option>
+              <option value="th">ภาษาไทย</option>
+              <option value="vi">Tiếng Việt</option>
+            </optgroup>
           </select>
         </div>
         <button id="resetBtn">RESET</button>
@@ -142,7 +173,7 @@
             <div class="key key-numpad" data-code="Numpad7"><span class="top">Home</span><span class="bot">7</span></div>
             <div class="key key-numpad" data-code="Numpad8"><span class="top">↑</span><span class="bot">8</span></div>
             <div class="key key-numpad" data-code="Numpad9"><span class="top">PgUp</span><span class="bot">9</span></div>
-            <div class="key key-numpad key-numpad-plus" data-code="NumpadAdd"><span>+</span></div>
+            <div class="key key-numpad" data-code="NumpadAdd"><span>+</span></div>
           </div>
 
           <!-- Row 3: ASDF -->
@@ -166,6 +197,7 @@
             <div class="key key-numpad" data-code="Numpad4"><span class="top">←</span><span class="bot">4</span></div>
             <div class="key key-numpad" data-code="Numpad5"><span class="bot">5</span></div>
             <div class="key key-numpad" data-code="Numpad6"><span class="top">→</span><span class="bot">6</span></div>
+            <div class="key-numpad-spacer"></div>
           </div>
 
           <!-- Row 4: ZXCV -->
@@ -190,7 +222,7 @@
             <div class="key key-numpad" data-code="Numpad1"><span class="top">End</span><span class="bot">1</span></div>
             <div class="key key-numpad" data-code="Numpad2"><span class="top">↓</span><span class="bot">2</span></div>
             <div class="key key-numpad" data-code="Numpad3"><span class="top">PgDn</span><span class="bot">3</span></div>
-            <div class="key key-numpad key-numpad-enter" data-code="NumpadEnter"><span>Enter</span></div>
+            <div class="key key-numpad" data-code="NumpadEnter"><span>Enter</span></div>
           </div>
 
           <!-- Row 5: Bottom row -->
@@ -210,14 +242,11 @@
             <div class="key-gap-sm"></div>
             <div class="key key-numpad key-numpad-0" data-code="Numpad0"><span class="top">Ins</span><span class="bot">0</span></div>
             <div class="key key-numpad" data-code="NumpadDecimal"><span class="top">Del</span><span class="bot">.</span></div>
+            <div class="key-numpad-spacer"></div>
           </div>
 
         </div><!-- #keyboard -->
       </div><!-- .keyboard-chassis -->
-
-      <div id="bottom-bar">
-        <button id="resetBtnBottom">⟳ RESET ALL KEYS</button>
-      </div>
     </main>
 
     <footer>

@@ -4,7 +4,7 @@
   /* ─── LAYOUT DEFINITIONS ─────────────────────────────────────
    * Each entry: [primary, secondary?]
    * primary  = base character (shown bottom-left)
-   * secondary = shift character (shown top-left), omit for single-label keys
+   * secondary = shift character (shown top-left)
    ──────────────────────────────────────────────────────────── */
   const LAYOUTS = {
     en: { name: 'English', keys: {
@@ -150,6 +150,19 @@
       KeyZ:['Z'], KeyX:['X'], KeyC:['C'], KeyV:['V'], KeyB:['B'], KeyN:['N'], KeyM:['M'],
       Comma:[',',';'], Period:['.',':'], Slash:['-','_'],
     }},
+    is: { name: 'Íslenska', keys: {
+      Backquote:['°'], Digit1:['1','!'], Digit2:['2','"'], Digit3:['3','#'],
+      Digit4:['4','$'], Digit5:['5','%'], Digit6:['6','&'], Digit7:['7','/'],
+      Digit8:['8','('], Digit9:['9',')'], Digit0:['0','='], Minus:['Ö','?'], Equal:['-','_'],
+      KeyQ:['Q'], KeyW:['W'], KeyE:['E'], KeyR:['R'], KeyT:['T'],
+      KeyY:['Y'], KeyU:['U'], KeyI:['I'], KeyO:['O'], KeyP:['P'],
+      BracketLeft:['Ð'], BracketRight:["'",'?'], Backslash:['+','*'],
+      KeyA:['A'], KeyS:['S'], KeyD:['D'], KeyF:['F'], KeyG:['G'],
+      KeyH:['H'], KeyJ:['J'], KeyK:['K'], KeyL:['L'],
+      Semicolon:['Æ'], Quote:['´','`'],
+      KeyZ:['Z'], KeyX:['X'], KeyC:['C'], KeyV:['V'], KeyB:['B'], KeyN:['N'], KeyM:['M'],
+      Comma:[',',';'], Period:['.',':'], Slash:['Þ'],
+    }},
     pl: { name: 'Polski', keys: {
       Backquote:['`','~'], Digit1:['1','!'], Digit2:['2','@'], Digit3:['3','#'],
       Digit4:['4','$'], Digit5:['5','%'], Digit6:['6','^'], Digit7:['7','&'],
@@ -169,10 +182,23 @@
       Digit8:['8','('], Digit9:['9',')'], Digit0:['0','='], Minus:['%','+'], Equal:['´','˘'],
       KeyQ:['Q'], KeyW:['W'], KeyE:['E'], KeyR:['R'], KeyT:['T'],
       KeyY:['Z'], KeyU:['U'], KeyI:['I'], KeyO:['O'], KeyP:['P'],
-      BracketLeft:['ú','/'], BracketRight:[')','\('], Backslash:['\\','|'],
+      BracketLeft:['ú','/'], BracketRight:[')','('], Backslash:['\\','|'],
       KeyA:['A'], KeyS:['S'], KeyD:['D'], KeyF:['F'], KeyG:['G'],
       KeyH:['H'], KeyJ:['J'], KeyK:['K'], KeyL:['L'],
       Semicolon:['ů','"'], Quote:['§','!'],
+      KeyZ:['Y'], KeyX:['X'], KeyC:['C'], KeyV:['V'], KeyB:['B'], KeyN:['N'], KeyM:['M'],
+      Comma:[',','?'], Period:['.',':'], Slash:['-','_'],
+    }},
+    sk: { name: 'Slovenčina', keys: {
+      Backquote:[';','°'], Digit1:['1','!'], Digit2:['2','@'], Digit3:['3','#'],
+      Digit4:['4','$'], Digit5:['5','%'], Digit6:['6','/'], Digit7:['7','('],
+      Digit8:['8',')'], Digit9:['9','='], Digit0:['0','_'], Minus:['=','%'], Equal:['´','˘'],
+      KeyQ:['Q'], KeyW:['W'], KeyE:['E'], KeyR:['R'], KeyT:['T'],
+      KeyY:['Z'], KeyU:['U'], KeyI:['I'], KeyO:['O'], KeyP:['P'],
+      BracketLeft:['ú','/'], BracketRight:['ä','('], Backslash:['\\','|'],
+      KeyA:['A'], KeyS:['S'], KeyD:['D'], KeyF:['F'], KeyG:['G'],
+      KeyH:['H'], KeyJ:['J'], KeyK:['K'], KeyL:['L'],
+      Semicolon:['ô','"'], Quote:['§','!'],
       KeyZ:['Y'], KeyX:['X'], KeyC:['C'], KeyV:['V'], KeyB:['B'], KeyN:['N'], KeyM:['M'],
       Comma:[',','?'], Period:['.',':'], Slash:['-','_'],
     }},
@@ -189,6 +215,110 @@
       KeyZ:['Y'], KeyX:['X'], KeyC:['C'], KeyV:['V'], KeyB:['B'], KeyN:['N'], KeyM:['M'],
       Comma:[',','?'], Period:['.',':'], Slash:['-','_'],
     }},
+    ro: { name: 'Română', keys: {
+      Backquote:['`','~'], Digit1:['1','!'], Digit2:['2','@'], Digit3:['3','#'],
+      Digit4:['4','$'], Digit5:['5','%'], Digit6:['6','^'], Digit7:['7','&'],
+      Digit8:['8','*'], Digit9:['9','('], Digit0:['0',')'], Minus:['-','_'], Equal:['=','+'],
+      KeyQ:['Q'], KeyW:['W'], KeyE:['E'], KeyR:['R'], KeyT:['T'],
+      KeyY:['Y'], KeyU:['U'], KeyI:['I'], KeyO:['O'], KeyP:['P'],
+      BracketLeft:['ă','Ă'], BracketRight:['â','Â'], Backslash:['î','Î'],
+      KeyA:['A'], KeyS:['S'], KeyD:['D'], KeyF:['F'], KeyG:['G'],
+      KeyH:['H'], KeyJ:['J'], KeyK:['K'], KeyL:['L'],
+      Semicolon:['ș','Ș'], Quote:['ț','Ț'],
+      KeyZ:['Z'], KeyX:['X'], KeyC:['C'], KeyV:['V'], KeyB:['B'], KeyN:['N'], KeyM:['M'],
+      Comma:[',','<'], Period:['.','>'], Slash:['/','?'],
+    }},
+    hr: { name: 'Hrvatski', keys: {
+      Backquote:['¸','¨'], Digit1:['1','!'], Digit2:['2','"'], Digit3:['3','#'],
+      Digit4:['4','$'], Digit5:['5','%'], Digit6:['6','&'], Digit7:['7','/'],
+      Digit8:['8','('], Digit9:['9',')'], Digit0:['0','='], Minus:["'",'?'], Equal:['+','*'],
+      KeyQ:['Q'], KeyW:['W'], KeyE:['E'], KeyR:['R'], KeyT:['T'],
+      KeyY:['Z'], KeyU:['U'], KeyI:['I'], KeyO:['O'], KeyP:['P'],
+      BracketLeft:['Š'], BracketRight:['Đ'], Backslash:['Ž'],
+      KeyA:['A'], KeyS:['S'], KeyD:['D'], KeyF:['F'], KeyG:['G'],
+      KeyH:['H'], KeyJ:['J'], KeyK:['K'], KeyL:['L'],
+      Semicolon:['Č'], Quote:['Ć'],
+      KeyZ:['Y'], KeyX:['X'], KeyC:['C'], KeyV:['V'], KeyB:['B'], KeyN:['N'], KeyM:['M'],
+      Comma:[',',';'], Period:['.',':'], Slash:['-','_'],
+    }},
+    sl: { name: 'Slovenščina', keys: {
+      Backquote:['¸','¨'], Digit1:['1','!'], Digit2:['2','"'], Digit3:['3','#'],
+      Digit4:['4','$'], Digit5:['5','%'], Digit6:['6','&'], Digit7:['7','/'],
+      Digit8:['8','('], Digit9:['9',')'], Digit0:['0','='], Minus:["'",'?'], Equal:['+','*'],
+      KeyQ:['Q'], KeyW:['W'], KeyE:['E'], KeyR:['R'], KeyT:['T'],
+      KeyY:['Z'], KeyU:['U'], KeyI:['I'], KeyO:['O'], KeyP:['P'],
+      BracketLeft:['Š'], BracketRight:['Đ'], Backslash:['Ž'],
+      KeyA:['A'], KeyS:['S'], KeyD:['D'], KeyF:['F'], KeyG:['G'],
+      KeyH:['H'], KeyJ:['J'], KeyK:['K'], KeyL:['L'],
+      Semicolon:['Č'], Quote:['Ć'],
+      KeyZ:['Y'], KeyX:['X'], KeyC:['C'], KeyV:['V'], KeyB:['B'], KeyN:['N'], KeyM:['M'],
+      Comma:[',',';'], Period:['.',':'], Slash:['-','_'],
+    }},
+    'sr-Latn': { name: 'Srpski (latinica)', keys: {
+      Backquote:['`','~'], Digit1:['1','!'], Digit2:['2','"'], Digit3:['3','#'],
+      Digit4:['4','$'], Digit5:['5','%'], Digit6:['6','&'], Digit7:['7','/'],
+      Digit8:['8','('], Digit9:['9',')'], Digit0:['0','='], Minus:["'",'?'], Equal:['+','*'],
+      KeyQ:['Q'], KeyW:['W'], KeyE:['E'], KeyR:['R'], KeyT:['T'],
+      KeyY:['Z'], KeyU:['U'], KeyI:['I'], KeyO:['O'], KeyP:['P'],
+      BracketLeft:['Š'], BracketRight:['Đ'], Backslash:['Ž'],
+      KeyA:['A'], KeyS:['S'], KeyD:['D'], KeyF:['F'], KeyG:['G'],
+      KeyH:['H'], KeyJ:['J'], KeyK:['K'], KeyL:['L'],
+      Semicolon:['Č'], Quote:['Ć'],
+      KeyZ:['Y'], KeyX:['X'], KeyC:['C'], KeyV:['V'], KeyB:['B'], KeyN:['N'], KeyM:['M'],
+      Comma:[',',';'], Period:['.',':'], Slash:['-','_'],
+    }},
+    sq: { name: 'Shqip', keys: {
+      Backquote:['\\','|'], Digit1:['1','!'], Digit2:['2','"'], Digit3:['3','#'],
+      Digit4:['4','$'], Digit5:['5','%'], Digit6:['6','^'], Digit7:['7','&'],
+      Digit8:['8','*'], Digit9:['9','('], Digit0:['0',')'], Minus:['-','_'], Equal:['=','+'],
+      KeyQ:['Q'], KeyW:['W'], KeyE:['E'], KeyR:['R'], KeyT:['T'],
+      KeyY:['Y'], KeyU:['U'], KeyI:['I'], KeyO:['O'], KeyP:['P'],
+      BracketLeft:['Ç'], BracketRight:[']','}'], Backslash:['[','{'],
+      KeyA:['A'], KeyS:['S'], KeyD:['D'], KeyF:['F'], KeyG:['G'],
+      KeyH:['H'], KeyJ:['J'], KeyK:['K'], KeyL:['L'],
+      Semicolon:[';',':'], Quote:["'",'"'],
+      KeyZ:['Z'], KeyX:['X'], KeyC:['C'], KeyV:['V'], KeyB:['B'], KeyN:['N'], KeyM:['M'],
+      Comma:[',','<'], Period:['.','>'], Slash:['/','?'],
+    }},
+    et: { name: 'Eesti', keys: {
+      Backquote:['`','~'], Digit1:['1','!'], Digit2:['2','"'], Digit3:['3','#'],
+      Digit4:['4','¤'], Digit5:['5','%'], Digit6:['6','&'], Digit7:['7','/'],
+      Digit8:['8','('], Digit9:['9',')'], Digit0:['0','='], Minus:['+','?'], Equal:['´','`'],
+      KeyQ:['Q'], KeyW:['W'], KeyE:['E'], KeyR:['R'], KeyT:['T'],
+      KeyY:['Y'], KeyU:['U'], KeyI:['I'], KeyO:['O'], KeyP:['P'],
+      BracketLeft:['Ü'], BracketRight:['Õ'], Backslash:['\\','|'],
+      KeyA:['A'], KeyS:['S'], KeyD:['D'], KeyF:['F'], KeyG:['G'],
+      KeyH:['H'], KeyJ:['J'], KeyK:['K'], KeyL:['L'],
+      Semicolon:['Ö'], Quote:['Ä'],
+      KeyZ:['Z'], KeyX:['X'], KeyC:['C'], KeyV:['V'], KeyB:['B'], KeyN:['N'], KeyM:['M'],
+      Comma:[',',';'], Period:['.',':'], Slash:['-','_'],
+    }},
+    lv: { name: 'Latviešu', keys: {
+      Backquote:['`','~'], Digit1:['1','!'], Digit2:['2','@'], Digit3:['3','#'],
+      Digit4:['4','$'], Digit5:['5','%'], Digit6:['6','^'], Digit7:['7','&'],
+      Digit8:['8','*'], Digit9:['9','('], Digit0:['0',')'], Minus:['-','_'], Equal:['=','+'],
+      KeyQ:['Q'], KeyW:['W'], KeyE:['Ē','e'], KeyR:['R'], KeyT:['T'],
+      KeyY:['Y'], KeyU:['Ū','u'], KeyI:['Ī','i'], KeyO:['O'], KeyP:['P'],
+      BracketLeft:['[','{'], BracketRight:[']','}'], Backslash:['\\','|'],
+      KeyA:['Ā','a'], KeyS:['S'], KeyD:['D'], KeyF:['F'], KeyG:['Ģ','g'],
+      KeyH:['H'], KeyJ:['J'], KeyK:['Ķ','k'], KeyL:['Ļ','l'],
+      Semicolon:[';',':'], Quote:["'",'"'],
+      KeyZ:['Z'], KeyX:['X'], KeyC:['Č','c'], KeyV:['V'], KeyB:['B'], KeyN:['Ņ','n'], KeyM:['M'],
+      Comma:[',','<'], Period:['.','>'], Slash:['/','?'],
+    }},
+    lt: { name: 'Lietuvių', keys: {
+      Backquote:['`','~'], Digit1:['ą','!'], Digit2:['č','"'], Digit3:['ę','#'],
+      Digit4:['ė','$'], Digit5:['į','%'], Digit6:['š','&'], Digit7:['ų','/'],
+      Digit8:['ū','('], Digit9:['9',')'], Digit0:['0','='], Minus:['-','?'], Equal:['=','+'],
+      KeyQ:['Q'], KeyW:['W'], KeyE:['E'], KeyR:['R'], KeyT:['T'],
+      KeyY:['Y'], KeyU:['U'], KeyI:['I'], KeyO:['O'], KeyP:['P'],
+      BracketLeft:['[','{'], BracketRight:[']','}'], Backslash:['\\','|'],
+      KeyA:['A'], KeyS:['S'], KeyD:['D'], KeyF:['F'], KeyG:['G'],
+      KeyH:['H'], KeyJ:['J'], KeyK:['K'], KeyL:['L'],
+      Semicolon:[';',':'], Quote:["'",'"'],
+      KeyZ:['Ž','ž'], KeyX:['X'], KeyC:['C'], KeyV:['V'], KeyB:['B'], KeyN:['N'], KeyM:['M'],
+      Comma:[',','<'], Period:['.','>'], Slash:['/','?'],
+    }},
     tr: { name: 'Türkçe', keys: {
       Backquote:['"','é'], Digit1:['1','!'], Digit2:['2',"'"], Digit3:['3','^'],
       Digit4:['4','+'], Digit5:['5','%'], Digit6:['6','&'], Digit7:['7','/'],
@@ -202,6 +332,19 @@
       KeyZ:['Z'], KeyX:['X'], KeyC:['C'], KeyV:['V'], KeyB:['B'], KeyN:['N'], KeyM:['M'],
       Comma:['Ö'], Period:['Ç'], Slash:['.',':'],
     }},
+    az: { name: 'Azərbaycan', keys: {
+      Backquote:['`','~'], Digit1:['1','!'], Digit2:['2','@'], Digit3:['3','#'],
+      Digit4:['4','$'], Digit5:['5','%'], Digit6:['6','^'], Digit7:['7','&'],
+      Digit8:['8','*'], Digit9:['9','('], Digit0:['0',')'], Minus:['-','_'], Equal:['=','+'],
+      KeyQ:['Q'], KeyW:['W'], KeyE:['E'], KeyR:['R'], KeyT:['T'],
+      KeyY:['Y'], KeyU:['U'], KeyI:['İ','i'], KeyO:['O'], KeyP:['P'],
+      BracketLeft:['Ü','ü'], BracketRight:['Ö','ö'], Backslash:['\\','|'],
+      KeyA:['A'], KeyS:['S'], KeyD:['D'], KeyF:['F'], KeyG:['G'],
+      KeyH:['H'], KeyJ:['J'], KeyK:['K'], KeyL:['L'],
+      Semicolon:[';',':'], Quote:["'",'"'],
+      KeyZ:['Z'], KeyX:['X'], KeyC:['C'], KeyV:['V'], KeyB:['B'], KeyN:['N'], KeyM:['M'],
+      Comma:[',','Ç'], Period:['.','Ş'], Slash:['/','Ğ'],
+    }},
     el: { name: 'Ελληνικά', keys: {
       Backquote:['`','~'], Digit1:['1','!'], Digit2:['2','@'], Digit3:['3','#'],
       Digit4:['4','$'], Digit5:['5','%'], Digit6:['6','^'], Digit7:['7','&'],
@@ -213,6 +356,62 @@
       KeyH:['η'], KeyJ:['ξ'], KeyK:['κ'], KeyL:['λ'],
       Semicolon:[';',':'], Quote:["'",'"'],
       KeyZ:['ζ'], KeyX:['χ'], KeyC:['ψ'], KeyV:['ω'], KeyB:['β'], KeyN:['ν'], KeyM:['μ'],
+      Comma:[',','<'], Period:['.','>'], Slash:['/','?'],
+    }},
+    he: { name: 'עברית', keys: {
+      Backquote:['`','~'], Digit1:['1','!'], Digit2:['2','@'], Digit3:['3','#'],
+      Digit4:['4','$'], Digit5:['5','%'], Digit6:['6','^'], Digit7:['7','&'],
+      Digit8:['8','*'], Digit9:['9',')'], Digit0:['0','('], Minus:['-','_'], Equal:['=','+'],
+      KeyQ:['/',"'"], KeyW:["'",'W'], KeyE:['ק'], KeyR:['ר'], KeyT:['א'],
+      KeyY:['ט'], KeyU:['ו'], KeyI:['ן'], KeyO:['ם'], KeyP:['פ'],
+      BracketLeft:['[','{'], BracketRight:[']','}'], Backslash:['\\','|'],
+      KeyA:['ש'], KeyS:['ד'], KeyD:['ג'], KeyF:['כ'], KeyG:['ע'],
+      KeyH:['י'], KeyJ:['ח'], KeyK:['ל'], KeyL:['ך'],
+      Semicolon:['פ',':'], Quote:[',','"'],
+      KeyZ:['ז'], KeyX:['ס'], KeyC:['ב'], KeyV:['ה'], KeyB:['נ'], KeyN:['מ'], KeyM:['צ'],
+      Comma:['ת','>'], Period:['ץ','<'], Slash:['.','/'],
+    }},
+    ar: { name: 'العربية', keys: {
+      Backquote:['ذ','ّ'], Digit1:['١','!'], Digit2:['٢','@'], Digit3:['٣','#'],
+      Digit4:['٤','$'], Digit5:['٥','%'], Digit6:['٦','^'], Digit7:['٧','&'],
+      Digit8:['٨','*'], Digit9:['٩',')'], Digit0:['٠','('], Minus:['-','_'], Equal:['=','+'],
+      KeyQ:['ض'], KeyW:['ص'], KeyE:['ث'], KeyR:['ق'], KeyT:['ف'],
+      KeyY:['غ'], KeyU:['ع'], KeyI:['ه'], KeyO:['خ'], KeyP:['ح'],
+      BracketLeft:['ج'], BracketRight:['د'], Backslash:['\\','|'],
+      KeyA:['ش'], KeyS:['س'], KeyD:['ي'], KeyF:['ب'], KeyG:['ل'],
+      KeyH:['ا'], KeyJ:['ت'], KeyK:['ن'], KeyL:['م'],
+      Semicolon:['ك'], Quote:['ط'],
+      KeyZ:['ئ'], KeyX:['ء'], KeyC:['ؤ'], KeyV:['ر'], KeyB:['لا'], KeyN:['ى'], KeyM:['ة'],
+      Comma:['و'], Period:['ز'], Slash:['ظ'],
+    }},
+    fa: { name: 'فارسی', keys: {
+      Backquote:['‌','÷'], Digit1:['۱','!'], Digit2:['۲','٬'], Digit3:['۳','٫'],
+      Digit4:['۴','﷼'], Digit5:['۵','%'], Digit6:['۶','×'], Digit7:['۷','،'],
+      Digit8:['۸','*'], Digit9:['۹','('], Digit0:['۰',')'], Minus:['-','ـ'], Equal:['=','+'],
+      KeyQ:['ض','ْ'], KeyW:['ص','ٌ'], KeyE:['ث','ٍ'], KeyR:['ق','ً'],
+      KeyT:['ف','ُ'], KeyY:['غ','ِ'], KeyU:['ع','َ'], KeyI:['ه','ّ'],
+      KeyO:['خ',']'], KeyP:['ح','['],
+      BracketLeft:['ج','}'], BracketRight:['چ','{'], Backslash:['\\','|'],
+      KeyA:['ش','ؤ'], KeyS:['س','ئ'], KeyD:['ی','ي'], KeyF:['ب','إ'],
+      KeyG:['ل','أ'], KeyH:['ا','آ'], KeyJ:['ت','ة'], KeyK:['ن','»'],
+      KeyL:['م','«'],
+      Semicolon:[':',';'], Quote:["'",'\"'],
+      KeyZ:['ظ','ك'], KeyX:['ط','ژ'], KeyC:['ز','ز'], KeyV:['ر','ذ'],
+      KeyB:['ذ','ب'], KeyN:['د','د'], KeyM:['پ','پ'],
+      Comma:['و','،'], Period:['.','؟'], Slash:['/','÷'],
+    }},
+    ka: { name: 'ქართული', keys: {
+      Backquote:['`','~'], Digit1:['1','!'], Digit2:['2','@'], Digit3:['3','#'],
+      Digit4:['4','$'], Digit5:['5','%'], Digit6:['6','^'], Digit7:['7','&'],
+      Digit8:['8','*'], Digit9:['9','('], Digit0:['0',')'], Minus:['-','_'], Equal:['=','+'],
+      KeyQ:['ქ'], KeyW:['წ'], KeyE:['ე'], KeyR:['რ'], KeyT:['ტ'],
+      KeyY:['ყ'], KeyU:['უ'], KeyI:['ი'], KeyO:['ო'], KeyP:['პ'],
+      BracketLeft:['[','{'], BracketRight:[']','}'], Backslash:['\\','|'],
+      KeyA:['ა'], KeyS:['ს'], KeyD:['დ'], KeyF:['ფ'], KeyG:['გ'],
+      KeyH:['ჰ'], KeyJ:['ჯ'], KeyK:['კ'], KeyL:['ლ'],
+      Semicolon:[';',':'], Quote:["'",'"'],
+      KeyZ:['ზ'], KeyX:['ხ'], KeyC:['ც'], KeyV:['ვ'], KeyB:['ბ'],
+      KeyN:['ნ'], KeyM:['მ'],
       Comma:[',','<'], Period:['.','>'], Slash:['/','?'],
     }},
     ru: { name: 'Русский', keys: {
@@ -241,31 +440,88 @@
       KeyZ:['я'], KeyX:['ч'], KeyC:['с'], KeyV:['м'], KeyB:['и'], KeyN:['т'], KeyM:['ь'],
       Comma:['б','Б'], Period:['ю','Ю'], Slash:['.',','],
     }},
-    he: { name: 'עברית', keys: {
-      Backquote:['`','~'], Digit1:['1','!'], Digit2:['2','@'], Digit3:['3','#'],
-      Digit4:['4','$'], Digit5:['5','%'], Digit6:['6','^'], Digit7:['7','&'],
-      Digit8:['8','*'], Digit9:['9',')'], Digit0:['0','('], Minus:['-','_'], Equal:['=','+'],
-      KeyQ:['/',"'"], KeyW:["'",'W'], KeyE:['ק'], KeyR:['ר'], KeyT:['א'],
-      KeyY:['ט'], KeyU:['ו'], KeyI:['ן'], KeyO:['ם'], KeyP:['פ'],
-      BracketLeft:['[','{'], BracketRight:[']','}'], Backslash:['\\','|'],
-      KeyA:['ש'], KeyS:['ד'], KeyD:['ג'], KeyF:['כ'], KeyG:['ע'],
-      KeyH:['י'], KeyJ:['ח'], KeyK:['ל'], KeyL:['ך'],
-      Semicolon:['פ',':'], Quote:[',','"'],
-      KeyZ:['ז'], KeyX:['ס'], KeyC:['ב'], KeyV:['ה'], KeyB:['נ'], KeyN:['מ'], KeyM:['צ'],
-      Comma:['ת','>'], Period:['ץ','<'], Slash:['.','/'],
+    be: { name: 'Беларуская', keys: {
+      Backquote:['ё','Ё'], Digit1:['1','!'], Digit2:['2','"'], Digit3:['3','№'],
+      Digit4:['4',';'], Digit5:['5','%'], Digit6:['6',':'], Digit7:['7','?'],
+      Digit8:['8','*'], Digit9:['9','('], Digit0:['0',')'], Minus:['-','_'], Equal:['=','+'],
+      KeyQ:['й'], KeyW:['ц'], KeyE:['у'], KeyR:['к'], KeyT:['е'],
+      KeyY:['н'], KeyU:['г'], KeyI:['ш'], KeyO:['ў'], KeyP:['з'],
+      BracketLeft:['х'], BracketRight:["'"], Backslash:['\\','|'],
+      KeyA:['ф'], KeyS:['ы'], KeyD:['в'], KeyF:['а'], KeyG:['п'],
+      KeyH:['р'], KeyJ:['о'], KeyK:['л'], KeyL:['д'],
+      Semicolon:['ж'], Quote:['э'],
+      KeyZ:['я'], KeyX:['ч'], KeyC:['с'], KeyV:['м'], KeyB:['і'], KeyN:['т'], KeyM:['ь'],
+      Comma:['б'], Period:['ю'], Slash:['.',','],
     }},
-    ar: { name: 'العربية', keys: {
-      Backquote:['ذ','ّ'], Digit1:['١','!'], Digit2:['٢','@'], Digit3:['٣','#'],
-      Digit4:['٤','$'], Digit5:['٥','%'], Digit6:['٦','^'], Digit7:['٧','&'],
-      Digit8:['٨','*'], Digit9:['٩',')'], Digit0:['٠','('], Minus:['-','_'], Equal:['=','+'],
-      KeyQ:['ض'], KeyW:['ص'], KeyE:['ث'], KeyR:['ق'], KeyT:['ف'],
-      KeyY:['غ'], KeyU:['ع'], KeyI:['ه'], KeyO:['خ'], KeyP:['ح'],
-      BracketLeft:['ج'], BracketRight:['د'], Backslash:['\\','|'],
-      KeyA:['ش'], KeyS:['س'], KeyD:['ي'], KeyF:['ب'], KeyG:['ل'],
-      KeyH:['ا'], KeyJ:['ت'], KeyK:['ن'], KeyL:['م'],
-      Semicolon:['ك'], Quote:['ط'],
-      KeyZ:['ئ'], KeyX:['ء'], KeyC:['ؤ'], KeyV:['ر'], KeyB:['لا'], KeyN:['ى'], KeyM:['ة'],
-      Comma:['و'], Period:['ز'], Slash:['ظ'],
+    bg: { name: 'Български (BDS)', keys: {
+      Backquote:['`','~'], Digit1:['1','!'], Digit2:['2','?'], Digit3:['3','+'],
+      Digit4:['4','"'], Digit5:['5','%'], Digit6:['6','='], Digit7:['7',':'],
+      Digit8:['8','/'], Digit9:['9','_'], Digit0:['0','ь'], Minus:['-','|'], Equal:['ж','Ж'],
+      KeyQ:['й','Й'], KeyW:['ц','Ц'], KeyE:['у','У'], KeyR:['к','К'], KeyT:['е','Е'],
+      KeyY:['н','Н'], KeyU:['г','Г'], KeyI:['ш','Ш'], KeyO:['щ','Щ'], KeyP:['з','З'],
+      BracketLeft:['х','Х'], BracketRight:['ъ','Ъ'], Backslash:['\\','|'],
+      KeyA:['ф','Ф'], KeyS:['ы','Ы'], KeyD:['в','В'], KeyF:['а','А'], KeyG:['п','П'],
+      KeyH:['р','Р'], KeyJ:['о','О'], KeyK:['л','Л'], KeyL:['д','Д'],
+      Semicolon:['ж','Ж'], Quote:['э','Э'],
+      KeyZ:['я','Я'], KeyX:['ч','Ч'], KeyC:['с','С'], KeyV:['м','М'], KeyB:['и','И'],
+      KeyN:['т','Т'], KeyM:['ь','Ь'],
+      Comma:['б','Б'], Period:['ю','Ю'], Slash:['.',','],
+    }},
+    sr: { name: 'Српски (ћирилица)', keys: {
+      Backquote:['`','~'], Digit1:['1','!'], Digit2:['2','"'], Digit3:['3','#'],
+      Digit4:['4','$'], Digit5:['5','%'], Digit6:['6','&'], Digit7:['7','/'],
+      Digit8:['8','('], Digit9:['9',')'], Digit0:['0','='], Minus:["'",'?'], Equal:['+','*'],
+      KeyQ:['љ','Љ'], KeyW:['њ','Њ'], KeyE:['е','Е'], KeyR:['р','Р'], KeyT:['т','Т'],
+      KeyY:['з','З'], KeyU:['у','У'], KeyI:['и','И'], KeyO:['о','О'], KeyP:['п','П'],
+      BracketLeft:['ш','Ш'], BracketRight:['ђ','Ђ'], Backslash:['ж','Ж'],
+      KeyA:['а','А'], KeyS:['с','С'], KeyD:['д','Д'], KeyF:['ф','Ф'], KeyG:['г','Г'],
+      KeyH:['х','Х'], KeyJ:['ј','Ј'], KeyK:['к','К'], KeyL:['л','Л'],
+      Semicolon:['ч','Ч'], Quote:['ћ','Ћ'],
+      KeyZ:['ѕ','Ѕ'], KeyX:['џ','Џ'], KeyC:['ц','Ц'], KeyV:['в','В'], KeyB:['б','Б'],
+      KeyN:['н','Н'], KeyM:['м','М'],
+      Comma:[',',';'], Period:['.',':'], Slash:['-','_'],
+    }},
+    mk: { name: 'Македонски', keys: {
+      Backquote:['`','~'], Digit1:['1','!'], Digit2:['2','"'], Digit3:['3','#'],
+      Digit4:['4','$'], Digit5:['5','%'], Digit6:['6','&'], Digit7:['7','/'],
+      Digit8:['8','('], Digit9:['9',')'], Digit0:['0','='], Minus:["'",'?'], Equal:['+','*'],
+      KeyQ:['љ','Љ'], KeyW:['њ','Њ'], KeyE:['е','Е'], KeyR:['р','Р'], KeyT:['т','Т'],
+      KeyY:['з','З'], KeyU:['у','У'], KeyI:['и','И'], KeyO:['о','О'], KeyP:['п','П'],
+      BracketLeft:['ш','Ш'], BracketRight:['ѓ','Ѓ'], Backslash:['\\','|'],
+      KeyA:['а','А'], KeyS:['с','С'], KeyD:['д','Д'], KeyF:['ф','Ф'], KeyG:['г','Г'],
+      KeyH:['х','Х'], KeyJ:['ј','Ј'], KeyK:['к','К'], KeyL:['л','Л'],
+      Semicolon:['ч','Ч'], Quote:['ќ','Ќ'],
+      KeyZ:['ѕ','Ѕ'], KeyX:['џ','Џ'], KeyC:['ц','Ц'], KeyV:['в','В'], KeyB:['б','Б'],
+      KeyN:['н','Н'], KeyM:['м','М'],
+      Comma:[',',';'], Period:['.',':'], Slash:['-','_'],
+    }},
+    kk: { name: 'Қазақша', keys: {
+      Backquote:['ё','Ё'], Digit1:['1','!'], Digit2:['2','"'], Digit3:['3','№'],
+      Digit4:['4',';'], Digit5:['5','%'], Digit6:['6',':'], Digit7:['7','?'],
+      Digit8:['8','*'], Digit9:['9','('], Digit0:['0',')'], Minus:['-','_'], Equal:['=','+'],
+      KeyQ:['й','Й'], KeyW:['ц','Ц'], KeyE:['у','У'], KeyR:['к','К'], KeyT:['е','Е'],
+      KeyY:['н','Н'], KeyU:['г','Г'], KeyI:['ш','Ш'], KeyO:['ң','Ң'], KeyP:['з','З'],
+      BracketLeft:['қ','Қ'], BracketRight:['ъ','Ъ'], Backslash:['\\','|'],
+      KeyA:['ф','Ф'], KeyS:['ы','Ы'], KeyD:['в','В'], KeyF:['а','А'], KeyG:['п','П'],
+      KeyH:['ғ','Ғ'], KeyJ:['о','О'], KeyK:['л','Л'], KeyL:['д','Д'],
+      Semicolon:['ж','Ж'], Quote:['э','Э'],
+      KeyZ:['я','Я'], KeyX:['ч','Ч'], KeyC:['с','С'], KeyV:['м','М'], KeyB:['и','И'],
+      KeyN:['т','Т'], KeyM:['ь','Ь'],
+      Comma:['б','Б'], Period:['ю','Ю'], Slash:['.',','],
+    }},
+    mn: { name: 'Монгол', keys: {
+      Backquote:['ё','Ё'], Digit1:['1','!'], Digit2:['2','"'], Digit3:['3','№'],
+      Digit4:['4',';'], Digit5:['5','%'], Digit6:['6',':'], Digit7:['7','?'],
+      Digit8:['8','*'], Digit9:['9','('], Digit0:['0',')'], Minus:['-','_'], Equal:['=','+'],
+      KeyQ:['й','Й'], KeyW:['ц','Ц'], KeyE:['у','У'], KeyR:['к','К'], KeyT:['е','Е'],
+      KeyY:['н','Н'], KeyU:['г','Г'], KeyI:['ш','Ш'], KeyO:['щ','Щ'], KeyP:['з','З'],
+      BracketLeft:['х','Х'], BracketRight:['ъ','Ъ'], Backslash:['\\','|'],
+      KeyA:['ф','Ф'], KeyS:['ы','Ы'], KeyD:['в','В'], KeyF:['а','А'], KeyG:['п','П'],
+      KeyH:['р','Р'], KeyJ:['о','О'], KeyK:['л','Л'], KeyL:['д','Д'],
+      Semicolon:['ж','Ж'], Quote:['э','Э'],
+      KeyZ:['я','Я'], KeyX:['ч','Ч'], KeyC:['с','С'], KeyV:['м','М'], KeyB:['и','И'],
+      KeyN:['т','Т'], KeyM:['ь','Ь'],
+      Comma:['б','Б'], Period:['ю','Ю'], Slash:['.',','],
     }},
     ja: { name: '日本語', keys: {
       Backquote:['半/全'], Digit1:['1','!'], Digit2:['2','"'], Digit3:['3','#'],
@@ -353,7 +609,6 @@
   const keyCountEl    = document.getElementById('key-count').querySelector('strong');
   const testedKeysEl  = document.getElementById('tested-keys');
   const resetBtn      = document.getElementById('resetBtn');
-  const resetBtnBottom= document.getElementById('resetBtnBottom');
   const themeBtn      = document.getElementById('themeBtn');
   const fullscreenBtn = document.getElementById('fullscreenBtn');
   const langSelect    = document.getElementById('langSelect');
@@ -465,7 +720,6 @@
   }
 
   resetBtn.addEventListener('click', doReset);
-  resetBtnBottom.addEventListener('click', doReset);
 
   /* ─── LANGUAGE ────────────────────────────────────────────── */
   const savedLang = localStorage.getItem('kbt-lang') || 'en';
@@ -512,4 +766,27 @@
   document.addEventListener('fullscreenchange', () => {
     if (!document.fullscreenElement) fullscreenBtn.textContent = 'FULL';
   });
+
+  /* ─── FIT KEYBOARD TO SCREEN ──────────────────────────────── */
+  function fitKeyboard() {
+    const chassis = document.querySelector('.keyboard-chassis');
+    if (!chassis) return;
+    chassis.style.zoom = '';
+
+    const mainEl = document.querySelector('main');
+    const availW = mainEl.clientWidth - 32;
+    const availH = mainEl.clientHeight - 32;
+
+    const chassisW = chassis.scrollWidth;
+    const chassisH = chassis.scrollHeight;
+
+    const scaleW = chassisW > 0 ? availW / chassisW : 1;
+    const scaleH = chassisH > 0 ? availH / chassisH : 1;
+    const scale  = Math.min(scaleW, scaleH, 1);
+
+    if (scale < 0.999) chassis.style.zoom = scale.toFixed(4);
+  }
+
+  window.addEventListener('load',   fitKeyboard);
+  window.addEventListener('resize', fitKeyboard);
 })();
