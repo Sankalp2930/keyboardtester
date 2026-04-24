@@ -15,6 +15,10 @@
       <div class="header-left">
         <h1>KEYBOARD TESTER</h1>
         <p class="subtitle">// DIAGNOSTIC UTILITY v1.0 //</p>
+        <a href="https://github.com/Sankalp2930" target="_blank" rel="noopener noreferrer" class="github-btn header-github">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="13" height="13"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.84 1.236 1.84 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.418-1.305.762-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.468-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.3 1.23a11.52 11.52 0 0 1 3.003-.404c1.02.005 2.047.138 3.003.404 2.29-1.552 3.297-1.23 3.297-1.23.653 1.652.242 2.873.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.61-2.804 5.625-5.476 5.92.43.372.823 1.102.823 2.222 0 1.606-.015 2.898-.015 3.293 0 .322.216.694.825.576C20.565 21.795 24 17.295 24 12c0-6.63-5.37-12-12-12z"/></svg>
+          Sankalp2930
+        </a>
       </div>
       <div class="controls">
         <div class="control-group">
@@ -85,8 +89,34 @@
             <option value="mac">macOS</option>
           </select>
         </div>
+        <div class="control-group">
+          <label for="themeSelect">THEME</label>
+          <select id="themeSelect">
+            <option value="retro">Retro</option>
+            <option value="neon">Neon</option>
+            <option value="cherry">Cherry</option>
+            <option value="ocean">Ocean</option>
+            <option value="dracula">Dracula</option>
+            <option value="synthwave">Synthwave</option>
+          </select>
+        </div>
+        <button id="modeBtn">DARK</button>
+        <div class="control-group">
+          <label for="kbdSelect">KEYBOARD</label>
+          <select id="kbdSelect">
+            <option value="generic">Generic</option>
+            <option value="keychron-k2">Keychron K2</option>
+            <option value="keychron-q1">Keychron Q1 Pro</option>
+            <option value="razer-bw">Razer BlackWidow V3</option>
+            <option value="corsair-k70">Corsair K70 RGB</option>
+            <option value="ducky-one2">Ducky One 2 Mini</option>
+            <option value="anne-pro2">Anne Pro 2</option>
+            <option value="logi-gpx">Logitech G Pro X</option>
+            <option value="leopold">Leopold FC750R</option>
+            <option value="custom">Custom Build</option>
+          </select>
+        </div>
         <button id="resetBtn">RESET</button>
-        <button id="themeBtn">LIGHT</button>
         <button id="fullscreenBtn">FULL</button>
       </div>
     </header>
@@ -101,7 +131,23 @@
       </div>
 
       <div class="keyboard-chassis">
-        <div class="keyboard-brand">◈ KB-1 MECHANICAL TESTER ◈</div>
+        <div class="chassis-header">
+          <div class="keyboard-brand">◈ KB-1 MECHANICAL TESTER ◈</div>
+          <div class="lock-leds">
+            <div class="led" id="led-caps">
+              <div class="led-dot"></div>
+              <span>CAPS</span>
+            </div>
+            <div class="led" id="led-num">
+              <div class="led-dot"></div>
+              <span>NUM</span>
+            </div>
+            <div class="led" id="led-scroll">
+              <div class="led-dot"></div>
+              <span>SCR</span>
+            </div>
+          </div>
+        </div>
 
         <div id="keyboard">
 
@@ -258,13 +304,6 @@
 
     <footer>
       <p>◈ Press keys on your physical keyboard — tested keys stay lit ◈ Enable Num Lock to test the numpad ◈</p>
-      <div class="footer-creator">
-        <span>Meet the creator</span>
-        <a href="https://github.com/Sankalp2930" target="_blank" rel="noopener noreferrer" class="github-btn">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.84 1.236 1.84 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.418-1.305.762-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.468-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.3 1.23a11.52 11.52 0 0 1 3.003-.404c1.02.005 2.047.138 3.003.404 2.29-1.552 3.297-1.23 3.297-1.23.653 1.652.242 2.873.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.61-2.804 5.625-5.476 5.92.43.372.823 1.102.823 2.222 0 1.606-.015 2.898-.015 3.293 0 .322.216.694.825.576C20.565 21.795 24 17.295 24 12c0-6.63-5.37-12-12-12z"/></svg>
-          Sankalp2930
-        </a>
-      </div>
     </footer>
   </div>
 

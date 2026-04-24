@@ -610,9 +610,15 @@
   const testedKeysEl  = document.getElementById('tested-keys');
   const resetBtn      = document.getElementById('resetBtn');
   const osSelect      = document.getElementById('osSelect');
-  const themeBtn      = document.getElementById('themeBtn');
+  const themeSelect   = document.getElementById('themeSelect');
+  const modeBtn       = document.getElementById('modeBtn');
+  const kbdSelect     = document.getElementById('kbdSelect');
   const fullscreenBtn = document.getElementById('fullscreenBtn');
   const langSelect    = document.getElementById('langSelect');
+  const brandEl       = document.querySelector('.keyboard-brand');
+  const ledCaps       = document.getElementById('led-caps');
+  const ledNum        = document.getElementById('led-num');
+  const ledScroll     = document.getElementById('led-scroll');
 
   /* ─── STATE ───────────────────────────────────────────────── */
   const testedKeys = new Map();   // code → display label
@@ -665,6 +671,7 @@
   /* ─── KEY EVENTS ──────────────────────────────────────────── */
   document.addEventListener('keydown', e => {
     e.preventDefault();
+    updateLeds(e);
     const code = e.code;
     if (heldKeys.has(code)) return;
     heldKeys.add(code);
@@ -673,6 +680,7 @@
 
   document.addEventListener('keyup', e => {
     e.preventDefault();
+    updateLeds(e);
     heldKeys.delete(e.code);
   });
 
@@ -780,24 +788,67 @@
     doReset();
   });
 
-  /* ─── THEME ───────────────────────────────────────────────── */
-  if (localStorage.getItem('kbt-theme') === 'light') applyLight();
+  /* ─── THEME + MODE ────────────────────────────────────────── */
+  const COLOUR_THEMES = ['retro', 'neon', 'cherry', 'ocean', 'dracula', 'synthwave'];
 
-  themeBtn.addEventListener('click', () => {
-    if (document.body.classList.contains('light')) {
-      document.body.classList.remove('light');
-      themeBtn.textContent = 'LIGHT';
-      localStorage.setItem('kbt-theme', 'dark');
-    } else {
-      applyLight();
-    }
+  function applyThemeAndMode(theme, mode) {
+    COLOUR_THEMES.forEach(t => document.body.classList.remove('theme-' + t));
+    document.body.classList.remove('light');
+    if (theme !== 'retro') document.body.classList.add('theme-' + theme);
+    if (mode === 'light') document.body.classList.add('light');
+    themeSelect.value = theme;
+    modeBtn.textContent = mode === 'light' ? 'DARK' : 'LIGHT';
+    localStorage.setItem('kbt-theme', theme);
+    localStorage.setItem('kbt-mode', mode);
+  }
+
+  const savedTheme = localStorage.getItem('kbt-theme') || 'retro';
+  const savedMode  = localStorage.getItem('kbt-mode')  || 'light';
+  applyThemeAndMode(savedTheme, savedMode);
+
+  themeSelect.addEventListener('change', () => {
+    const mode = document.body.classList.contains('light') ? 'light' : 'dark';
+    applyThemeAndMode(themeSelect.value, mode);
   });
 
-  function applyLight() {
-    document.body.classList.add('light');
-    themeBtn.textContent = 'DARK';
-    localStorage.setItem('kbt-theme', 'light');
+  modeBtn.addEventListener('click', () => {
+    const currentlyLight = document.body.classList.contains('light');
+    applyThemeAndMode(themeSelect.value, currentlyLight ? 'dark' : 'light');
+  });
+
+  /* ─── LOCK LEDs ───────────────────────────────────────────── */
+  function updateLeds(e) {
+    ledCaps.classList.toggle('on',   e.getModifierState('CapsLock'));
+    ledNum.classList.toggle('on',    e.getModifierState('NumLock'));
+    ledScroll.classList.toggle('on', e.getModifierState('ScrollLock'));
   }
+
+  /* ─── KEYBOARD MODEL ──────────────────────────────────────── */
+  const KBD_BRANDS = {
+    'generic':     '◈ KB-1 MECHANICAL TESTER ◈',
+    'keychron-k2': '◈ KEYCHRON K2 ◈',
+    'keychron-q1': '◈ KEYCHRON Q1 PRO ◈',
+    'razer-bw':    '◈ RAZER BLACKWIDOW V3 ◈',
+    'corsair-k70': '◈ CORSAIR K70 RGB ◈',
+    'ducky-one2':  '◈ DUCKY ONE 2 MINI ◈',
+    'anne-pro2':   '◈ ANNE PRO 2 ◈',
+    'logi-gpx':    '◈ LOGITECH G PRO X ◈',
+    'leopold':     '◈ LEOPOLD FC750R ◈',
+    'custom':      '◈ CUSTOM BUILD ◈',
+  };
+
+  function applyKeyboard(val) {
+    brandEl.textContent = KBD_BRANDS[val] || KBD_BRANDS.generic;
+  }
+
+  const savedKbd = localStorage.getItem('kbt-kbd') || 'generic';
+  kbdSelect.value = savedKbd;
+  applyKeyboard(savedKbd);
+
+  kbdSelect.addEventListener('change', () => {
+    localStorage.setItem('kbt-kbd', kbdSelect.value);
+    applyKeyboard(kbdSelect.value);
+  });
 
   /* ─── FULLSCREEN ──────────────────────────────────────────── */
   fullscreenBtn.addEventListener('click', () => {

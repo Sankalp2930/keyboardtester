@@ -16,7 +16,8 @@
   --kh-fn: 34px;
   --g:    4px;
   --ug:  46px;   /* = u + g  (hardcoded for calc performance) */
-  --rg:   2px;   /* vertical gap between keyboard rows */
+  --rg:   3px;   /* vertical gap between keyboard rows */
+  --scanline: rgba(0,0,0,0.12);
 
   /* Page */
   --page-bg:       #111111;
@@ -75,7 +76,7 @@
   --ka-text:  #180a00;
 }
 
-/* ─── LIGHT THEME ──────────────────────────────────────────── */
+/* ─── LIGHT MODE (retro — base, all themes inherit this) ────── */
 body.light {
   --page-bg:       #b8a880;
   --header-bg:     #ede2c8;
@@ -86,6 +87,8 @@ body.light {
   --info-bg:       #f0e8d0;
   --info-border:   #c8a870;
   --info-text:     #2a1804;
+  --badge-bg:      #c06010;
+  --badge-text:    #fff5e0;
   --btn-bg:        #d8ca9e;
   --btn-border:    #a88040;
   --btn-text:      #2a1804;
@@ -97,6 +100,346 @@ body.light {
   --chassis-top:   #28201a;
   --chassis-bot:   #16100a;
   --brand-text:    #3e2e18;
+  --scanline:      rgba(0,0,0,0.07);
+}
+
+/* ─── NEON / CYBERPUNK THEME ───────────────────────────────── */
+body.theme-neon {
+  --page-bg:       #06080f;
+  --header-bg:     #0a0d1a;
+  --header-border: #0a2040;
+  --header-text:   #00ffcc;
+  --subtitle-text: #006655;
+  --footer-text:   #003322;
+  --info-bg:       #060810;
+  --info-border:   #003322;
+  --info-text:     #00ffcc;
+  --badge-bg:      #00aa88;
+  --badge-text:    #001a11;
+  --btn-bg:        #04060e;
+  --btn-border:    #005544;
+  --btn-text:      #00ffcc;
+  --btn-hover:     #080c18;
+  --btn-hover-bd:  #00ffcc;
+  --sel-bg:        #04060e;
+  --sel-border:    #005544;
+  --sel-text:      #00ffcc;
+  --chassis-top:   #08091a;
+  --chassis-bot:   #03040d;
+  --chassis-bd:    #010208;
+  --brand-text:    #003322;
+  --brand-bg:      #020308;
+  --k-top:         #eef2ff;
+  --k-mid:         #dde4f5;
+  --k-bot:         #ccd5ec;
+  --k-border:      #8892bb;
+  --k-wall:        #334477;
+  --kfn-top:       #e4e8f8;
+  --kfn-mid:       #d4daf0;
+  --knp-top:       #e8ecf8;
+  --knp-mid:       #d8def2;
+  --ka-top:        #00ffcc;
+  --ka-mid:        #00aa88;
+  --ka-border:     #006655;
+  --ka-wall:       #003322;
+  --ka-glow:       rgba(0,255,204,0.45);
+  --ka-text:       #000a08;
+  --scanline:      rgba(0,255,204,0.03);
+}
+
+/* ─── CHERRY / GAMING THEME ────────────────────────────────── */
+body.theme-cherry {
+  --page-bg:       #120308;
+  --header-bg:     #1e060e;
+  --header-border: #3a0818;
+  --header-text:   #ff3366;
+  --subtitle-text: #771030;
+  --footer-text:   #3a0818;
+  --info-bg:       #0e0308;
+  --info-border:   #2a0610;
+  --info-text:     #ff3366;
+  --badge-bg:      #cc1133;
+  --badge-text:    #ffe0e8;
+  --btn-bg:        #180408;
+  --btn-border:    #660a1a;
+  --btn-text:      #ff3366;
+  --btn-hover:     #220810;
+  --btn-hover-bd:  #ff3366;
+  --sel-bg:        #180408;
+  --sel-border:    #660a1a;
+  --sel-text:      #ff3366;
+  --chassis-top:   #1c0810;
+  --chassis-bot:   #0e0408;
+  --chassis-bd:    #050204;
+  --brand-text:    #3a0818;
+  --brand-bg:      #070204;
+  --k-top:         #fff0f4;
+  --k-mid:         #ffdde6;
+  --k-bot:         #ffccd8;
+  --k-border:      #cc8899;
+  --k-wall:        #884455;
+  --kfn-top:       #ffe8ee;
+  --kfn-mid:       #ffd8e4;
+  --knp-top:       #ffeef2;
+  --knp-mid:       #ffdde6;
+  --ka-top:        #ff3366;
+  --ka-mid:        #cc0033;
+  --ka-border:     #880022;
+  --ka-wall:       #440011;
+  --ka-glow:       rgba(255,51,102,0.45);
+  --ka-text:       #120008;
+  --scanline:      rgba(255,51,102,0.03);
+}
+
+/* ─── OCEAN / AQUA THEME ───────────────────────────────────── */
+body.theme-ocean {
+  --page-bg:       #050c18;
+  --header-bg:     #081422;
+  --header-border: #0a2040;
+  --header-text:   #40b8ff;
+  --subtitle-text: #1a5a88;
+  --footer-text:   #0a2a44;
+  --info-bg:       #050a14;
+  --info-border:   #081830;
+  --info-text:     #40b8ff;
+  --badge-bg:      #0a7acc;
+  --badge-text:    #e0f4ff;
+  --btn-bg:        #050a14;
+  --btn-border:    #0a3a66;
+  --btn-text:      #40b8ff;
+  --btn-hover:     #081020;
+  --btn-hover-bd:  #40b8ff;
+  --sel-bg:        #050a14;
+  --sel-border:    #0a3a66;
+  --sel-text:      #40b8ff;
+  --chassis-top:   #08101e;
+  --chassis-bot:   #03060c;
+  --chassis-bd:    #010306;
+  --brand-text:    #0a2a44;
+  --brand-bg:      #030508;
+  --k-top:         #eef4ff;
+  --k-mid:         #ddeaf8;
+  --k-bot:         #cce0f0;
+  --k-border:      #7799cc;
+  --k-wall:        #224488;
+  --kfn-top:       #e4eef8;
+  --kfn-mid:       #d4e4f2;
+  --knp-top:       #e8f0fc;
+  --knp-mid:       #d8e8f8;
+  --ka-top:        #40b8ff;
+  --ka-mid:        #0a7acc;
+  --ka-border:     #085499;
+  --ka-wall:       #043366;
+  --ka-glow:       rgba(64,184,255,0.45);
+  --ka-text:       #010810;
+  --scanline:      rgba(64,184,255,0.03);
+}
+
+/* ─── DRACULA THEME ─────────────────────────────────────────── */
+body.theme-dracula {
+  --page-bg:       #282a36;
+  --header-bg:     #21222c;
+  --header-border: #44475a;
+  --header-text:   #bd93f9;
+  --subtitle-text: #6272a4;
+  --footer-text:   #44475a;
+  --info-bg:       #1e1f28;
+  --info-border:   #383a4e;
+  --info-text:     #f8f8f2;
+  --badge-bg:      #bd93f9;
+  --badge-text:    #1e1f28;
+  --btn-bg:        #21222c;
+  --btn-border:    #6272a4;
+  --btn-text:      #bd93f9;
+  --btn-hover:     #282a36;
+  --btn-hover-bd:  #ff79c6;
+  --sel-bg:        #21222c;
+  --sel-border:    #6272a4;
+  --sel-text:      #bd93f9;
+  --chassis-top:   #1e1f28;
+  --chassis-bot:   #14151c;
+  --chassis-bd:    #0a0a10;
+  --brand-text:    #44475a;
+  --brand-bg:      #14151c;
+  --k-top:         #f8f8f2;
+  --k-mid:         #e8e8ee;
+  --k-bot:         #d8d8e8;
+  --k-border:      #6272a4;
+  --k-wall:        #44475a;
+  --kfn-top:       #eeeefc;
+  --kfn-mid:       #ddddf0;
+  --knp-top:       #f2f2f8;
+  --knp-mid:       #e2e2f0;
+  --ka-top:        #bd93f9;
+  --ka-mid:        #8b5cf6;
+  --ka-border:     #6644cc;
+  --ka-wall:       #3a2288;
+  --ka-glow:       rgba(189,147,249,0.45);
+  --ka-text:       #1a1a2e;
+  --scanline:      rgba(189,147,249,0.04);
+}
+
+/* ─── SYNTHWAVE THEME ───────────────────────────────────────── */
+body.theme-synthwave {
+  --page-bg:       #0e0816;
+  --header-bg:     #140c20;
+  --header-border: #2e1050;
+  --header-text:   #ff2d78;
+  --subtitle-text: #771040;
+  --footer-text:   #3a0820;
+  --info-bg:       #0a0610;
+  --info-border:   #1e0830;
+  --info-text:     #ff2d78;
+  --badge-bg:      #cc0055;
+  --badge-text:    #ffe0ee;
+  --btn-bg:        #0e0818;
+  --btn-border:    #550833;
+  --btn-text:      #ff2d78;
+  --btn-hover:     #18081e;
+  --btn-hover-bd:  #ff2d78;
+  --sel-bg:        #0e0818;
+  --sel-border:    #550833;
+  --sel-text:      #ff2d78;
+  --chassis-top:   #160a22;
+  --chassis-bot:   #0a0412;
+  --chassis-bd:    #040208;
+  --brand-text:    #3a0820;
+  --brand-bg:      #06020a;
+  --k-top:         #fff0f8;
+  --k-mid:         #f0ddf0;
+  --k-bot:         #e8cce8;
+  --k-border:      #bb88aa;
+  --k-wall:        #662255;
+  --kfn-top:       #fde8f4;
+  --kfn-mid:       #edd8ec;
+  --knp-top:       #feeef8;
+  --knp-mid:       #f0e0f2;
+  --ka-top:        #ff2d78;
+  --ka-mid:        #cc0055;
+  --ka-border:     #880033;
+  --ka-wall:       #440018;
+  --ka-glow:       rgba(255,45,120,0.5);
+  --ka-text:       #120008;
+  --scanline:      rgba(255,45,120,0.04);
+}
+
+/* ─── LIGHT VARIANTS FOR EACH COLOUR THEME ─────────────────── *
+ * Chassis/key colours stay the same (dark chassis always looks
+ * good). Only the surrounding page/header/controls get lightened.
+ * ────────────────────────────────────────────────────────────── */
+body.theme-neon.light {
+  --page-bg:       #eef4ff;
+  --header-bg:     #e0ecf8;
+  --header-border: #b0ccee;
+  --header-text:   #005544;
+  --subtitle-text: #3a7a88;
+  --footer-text:   #5a9aaa;
+  --info-bg:       #e8f2fc;
+  --info-border:   #a8ccee;
+  --info-text:     #005544;
+  --badge-bg:      #007755;
+  --badge-text:    #ffffff;
+  --btn-bg:        #daeaf8;
+  --btn-border:    #80aad4;
+  --btn-text:      #005544;
+  --btn-hover:     #cce0f4;
+  --btn-hover-bd:  #005544;
+  --sel-bg:        #daeaf8;
+  --sel-border:    #80aad4;
+  --sel-text:      #005544;
+  --scanline:      rgba(0,0,0,0.05);
+}
+
+body.theme-cherry.light {
+  --page-bg:       #fff0f4;
+  --header-bg:     #ffe4ec;
+  --header-border: #ffb8cc;
+  --header-text:   #880022;
+  --subtitle-text: #aa3355;
+  --footer-text:   #cc6677;
+  --info-bg:       #ffeef4;
+  --info-border:   #ffccd8;
+  --info-text:     #880022;
+  --badge-bg:      #cc0033;
+  --badge-text:    #ffffff;
+  --btn-bg:        #ffe6ee;
+  --btn-border:    #ffaabb;
+  --btn-text:      #880022;
+  --btn-hover:     #ffdde8;
+  --btn-hover-bd:  #880022;
+  --sel-bg:        #ffe6ee;
+  --sel-border:    #ffaabb;
+  --sel-text:      #880022;
+  --scanline:      rgba(0,0,0,0.05);
+}
+
+body.theme-ocean.light {
+  --page-bg:       #e8f4ff;
+  --header-bg:     #d8ecff;
+  --header-border: #a8d0f0;
+  --header-text:   #003c88;
+  --subtitle-text: #3a7aaa;
+  --footer-text:   #5a9acc;
+  --info-bg:       #e0f0ff;
+  --info-border:   #a0ccee;
+  --info-text:     #003c88;
+  --badge-bg:      #0055bb;
+  --badge-text:    #ffffff;
+  --btn-bg:        #d4e8f8;
+  --btn-border:    #80b8e8;
+  --btn-text:      #003c88;
+  --btn-hover:     #c8dff4;
+  --btn-hover-bd:  #003c88;
+  --sel-bg:        #d4e8f8;
+  --sel-border:    #80b8e8;
+  --sel-text:      #003c88;
+  --scanline:      rgba(0,0,0,0.05);
+}
+
+body.theme-dracula.light {
+  --page-bg:       #f8f8f2;
+  --header-bg:     #f0effc;
+  --header-border: #c8c0f0;
+  --header-text:   #5a30b8;
+  --subtitle-text: #7766bb;
+  --footer-text:   #aaa0cc;
+  --info-bg:       #f4f2fe;
+  --info-border:   #ccc0ee;
+  --info-text:     #5a30b8;
+  --badge-bg:      #8855dd;
+  --badge-text:    #ffffff;
+  --btn-bg:        #eeecfc;
+  --btn-border:    #bbb0e8;
+  --btn-text:      #5a30b8;
+  --btn-hover:     #e6e2f8;
+  --btn-hover-bd:  #5a30b8;
+  --sel-bg:        #eeecfc;
+  --sel-border:    #bbb0e8;
+  --sel-text:      #5a30b8;
+  --scanline:      rgba(0,0,0,0.05);
+}
+
+body.theme-synthwave.light {
+  --page-bg:       #fff0f8;
+  --header-bg:     #ffe4f2;
+  --header-border: #ffb8d8;
+  --header-text:   #880044;
+  --subtitle-text: #aa3366;
+  --footer-text:   #cc6688;
+  --info-bg:       #ffeef6;
+  --info-border:   #ffccee;
+  --info-text:     #880044;
+  --badge-bg:      #cc0055;
+  --badge-text:    #ffffff;
+  --btn-bg:        #ffe6f2;
+  --btn-border:    #ffaacc;
+  --btn-text:      #880044;
+  --btn-hover:     #ffdded;
+  --btn-hover-bd:  #880044;
+  --sel-bg:        #ffe6f2;
+  --sel-border:    #ffaacc;
+  --sel-text:      #880044;
+  --scanline:      rgba(0,0,0,0.05);
 }
 
 /* ─── PAGE ─────────────────────────────────────────────────── */
@@ -108,7 +451,7 @@ body {
   background-image: repeating-linear-gradient(
     0deg,
     transparent 0px, transparent 2px,
-    rgba(0,0,0,0.12) 2px, rgba(0,0,0,0.12) 3px
+    var(--scanline) 2px, var(--scanline) 3px
   );
   color: var(--header-text);
   height: 100%;
@@ -140,6 +483,12 @@ header {
   justify-content: space-between;
   gap: 12px;
   flex-wrap: wrap;
+}
+
+.header-left {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
 
 .header-left h1 {
@@ -291,17 +640,67 @@ main {
   display: inline-block;   /* shrink-wrap to keyboard content */
 }
 
+.chassis-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
 .keyboard-brand {
   font-family: 'Share Tech Mono', monospace;
-  font-size: 0.55rem;
-  letter-spacing: 0.3em;
+  font-size: 0.65rem;
+  letter-spacing: 0.22em;
   color: var(--brand-text);
   text-align: center;
   background: var(--brand-bg);
-  padding: 4px 0;
+  padding: 5px 14px;
   border-radius: 3px;
-  margin-bottom: 14px;
-  border: 1px solid rgba(255,255,255,0.03);
+  flex: 1;
+  border: 1px solid rgba(255,255,255,0.06);
+  filter: brightness(1.6);
+}
+
+/* ─── LOCK LED INDICATORS ──────────────────────────────────── */
+.lock-leds {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.led {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+}
+
+.led-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #1a1008;
+  border: 1px solid #2e2010;
+  box-shadow: inset 0 1px 1px rgba(0,0,0,0.5);
+  transition: background 0.1s, box-shadow 0.1s;
+}
+
+.led.on .led-dot {
+  background: #22dd44;
+  border-color: #119922;
+  box-shadow:
+    inset 0 1px 1px rgba(255,255,255,0.3),
+    0 0 5px rgba(34,221,68,0.8),
+    0 0 10px rgba(34,221,68,0.4);
+}
+
+.led span {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.4rem;
+  color: var(--brand-text);
+  letter-spacing: 0.12em;
 }
 
 /* ─── KEYBOARD GRID ────────────────────────────────────────── */
@@ -490,16 +889,6 @@ footer {
   letter-spacing: 0.1em;
 }
 
-.footer-creator {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  margin-top: 6px;
-  font-size: 0.65rem;
-  letter-spacing: 0.08em;
-  color: var(--footer-text);
-}
-
 .github-btn {
   display: inline-flex;
   align-items: center;
@@ -517,6 +906,11 @@ footer {
   transition: border-color 0.2s, background 0.2s;
 }
 .github-btn:hover { border-color: var(--btn-hover-bd); background: var(--btn-hover-bg, var(--sel-bg)); }
+
+.header-github {
+  margin-top: 8px;
+  align-self: flex-start;
+}
 
 /* ─── FULLSCREEN ───────────────────────────────────────────── */
 :fullscreen  body { padding: 24px; }
